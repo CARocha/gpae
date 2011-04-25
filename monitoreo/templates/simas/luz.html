@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{%load unslugify %}
+{% block titulo %}
+Subindicador Energia
+<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
+{%endblock%}
+{%block extra_header%}
+<script type="text/javascript"
+
+</script>
+{%endblock%}
+{% block contenido %}
+
+{% include "nav_familia.html" %}
+
+<div class="separador"></div>
+<br>
+<div id="mostrar">
+    {% include "simas/menu.html" %}
+</div>
+
+
+<div class="contenido">
+    <table>
+        <thead>
+            <tr>
+                <th>Fuente</th>
+                <th>Frecuencia</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fila in tabla%}
+            <tr>
+                {%for celda in fila%}
+                <td>{{celda}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        <tbody>
+    </table>
+</div>
+{% endblock %}

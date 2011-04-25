@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load unslugify %}
+{%block extra_header%}
+
+{%endblock%}
+
+{%block titulo%}
+Subindicador Educación
+<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
+{%endblock%}
+
+{% block contenido %}
+
+{% include "nav_familia.html" %}
+
+<div class="separador"></div>
+<br>
+
+<div id="mostrar">
+    {% include "simas/menu.html" %}
+</div>
+<div class="contenido">
+    <table>
+        <caption>Educación</caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Número total</th>
+                <th>No sabe leer</th>
+                <th>Primaria incompleta</th>
+                <th>Primaria completa</th>
+                <th>Secundaria incompleta</th>
+                <th>Bachiller</th>
+                <th>Universitario</th>
+                <th>Vive fuera de la comunidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for fila in tabla_educacion%}
+            <tr>
+                {%for celda in fila %}
+                <td>{{celda}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

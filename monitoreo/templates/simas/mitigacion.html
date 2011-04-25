@@ -1,0 +1,42 @@
+{% extends "base.html"%}
+{%load unslugify %}
+{% block titulo %}
+Subindicador Mitigación de Riesgos
+<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
+{% endblock%}
+{%block extra_header%}
+<script type="text/javascript">
+
+</script>
+{%endblock%}
+{% block contenido %}
+
+{% include "nav_riesgos.html" %}
+<div class="separador"></div>
+
+<div id="mostrar">
+    {% include "simas/menu.html" %}
+</div>
+
+<div class="contenido">
+    <table>
+        <caption>Mitigación de los Riesgos</caption>
+        <thead>
+            <tr>
+                <th>Preguntas</th>
+                <th>Número</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in tabla.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.mitigacion|floatformat}}</td>
+                <td>{{value.por_mitigacion|floatformat}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

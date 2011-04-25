@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{%load unslugify %}
+{% block titulo %}
+Subindicador Salud
+<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
+{%endblock%}
+{% block contenido %}
+
+{% include "nav_familia.html" %}
+
+<div class="separador"></div>
+<br>
+
+<div id="mostrar">
+     {% include "simas/menu.html" %}
+</div>
+   
+<div class="contenido">
+    <table>
+    <caption>Tiene Buena Salud?</caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Frecuencia de consulta por edad</th>
+                <th>%Buena Salud</th>
+                <th>%Salud Delicada</th>
+                <th>%Enfermedades Crónica</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fila in tabla_estado%}
+            <tr>
+                {%for celda in fila%}
+                <td>{{celda}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        <tbody>
+    </table>
+<br></br>
+    <table>
+    <caption>Visita centros de salud</caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Frecuencia de consulta por edad</th>
+                <th>%Visita Centro de Salud</th>
+                <th>%Visita Médico Privado</th>
+                <th>%Visita Clínica</th>
+                <th>Número de veces que no logra atención por año</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fila in tabla_sitio%}
+            <tr>
+                {%for celda in fila%}
+                <td>{{celda}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+
+<br></br>
+{% endblock %}

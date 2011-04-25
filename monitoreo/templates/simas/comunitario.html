@@ -1,0 +1,111 @@
+{% extends "base.html"%}
+{%load unslugify %}
+{% block titulo %}
+Subindicador Organización Comunitaria
+<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
+{% endblock %}
+{%block extra_header%}
+<script type="text/javascript">
+    var activo = 0; 
+    function click_callback(id){
+        $.getJSON('/grafo/organizacion/' + id, function(data) {
+            if (activo!= id){
+                $("#grafo").html('<img src="' + data.url + '" />');
+                activo = id;
+            }else{
+                $("#grafo").html('');
+                activo = 0;
+            }
+        });
+    }
+    $(document).ready(function() {
+        $("#grafico1").click(function(){
+            $("#grafico1").addClass('enlace_seleccionado');
+            $("#grafico2").removeClass('enlace_seleccionado');
+        });
+    
+        $("#grafico2").click(function(){
+            $("#grafico2").addClass('enlace_seleccionado');
+            $("#grafico1").removeClass('enlace_seleccionado');
+        });
+
+    });
+</script>
+{%endblock%}
+
+{%block contenido%}
+{% include "nav_org.html" %}
+<div class="separador"></div>
+
+<div id="mostrar">
+    {% include "simas/menu.html" %}
+</div>
+
+<div id="sidebar">
+    <div class="graficos_widget">
+        <h1>Gráficos Org. Gremial </h1>
+        <a id="grafico1" href="#" onCLick="onCLick=click_callback('beneficiorganizado')">¿Beneficios de estar organizado</a>
+        <a id="grafico2" href="#" onCLick="click_callback('norganizado')">¿Porque no esta organizado?</a>
+        <a id="grafico2" href="#" onCLick="click_callback('comunitario')">¿Organización comunitaria?</a>
+
+    </div>
+</div>
+
+<div id="grafo"></div>
+
+<table>
+        <caption>¿Cuántas organizaciones están activas en la localidad o comunidad?</caption>
+        <thead>
+            <tr>
+                <th>Organizaciones</th>
+                <th>Cuantas</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>De uno a cinco (1-5)</td>
+            <td>{{uno}}</td>
+            
+       </tr>
+       <tr>
+            <td>De seis a diez (6-10)</td>
+            <td>{{dos}}</td>
+       </tr>
+       <tr>    
+            <td>De once a más (> 11)</td>
+            <td>{{tres}}</td>
+      </tr>
+       
+       </tbody>
+    </table>
+
+
+
+<table>
+        <caption>¿Pertenece a algunas organizaciones?</caption>
+        <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>Frecuencia</th>
+                <th>porcentaje %</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for key, value in tabla_pertenece.items %}
+            <td>{{key|unslugify}}</td>
+            <td>{{value.frecuencia|floatformat:2}}</td>
+            <td>{{value.porcentaje|floatformat:2}}</td>
+       </tr>
+            {% endfor %}
+            
+       <tr>
+            <th>TOTAL</th>
+            <th>{{divisor|floatformat:2}}</th>
+            <th>100</th>
+      </tr>
+       
+       </tbody>
+    </table>
+
+{% endblock %}

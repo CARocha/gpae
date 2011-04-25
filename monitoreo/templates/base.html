@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{%block title%}Sistema de Informaci&oacute;n Monitoreo Zona Alta y Seca{%endblock%}</title>
+        <link href="{{MEDIA_URL}}css/style.css" rel="stylesheet" type="text/css" media="all" title=""/>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>        
+        <script type="text/javascript">
+            var flag = true;
+            $(document).ready(function(){
+                $('#mas').click(function(){
+                    if(flag==true){
+                        $('#mostrar').slideDown('slow');
+                        $('#estado').html('<img src="/archivos/imagen/more.png"/>');
+                        flag = false;
+                    }else if (flag==false){
+                        $('#mostrar').slideUp('slow');
+                        $('#estado').html('<img src="/archivos/imagen/menos.png"/>');
+                        flag = true;
+                    }
+                    return false;
+                });
+            });
+        </script>
+	{%block extra_header%}{%endblock%}
+    </head>
+    <body>
+        <div id="header">
+            <div class="wrapper">
+                <div class="top">
+                    <div class="titulo">SISTEMA DE INFORMACIÓN Y MONITOREO</div>
+                    <div class="entrar_link">
+                        <img src="/archivos/imagen/entrar.png" alt="Entrar">
+                        <a href="/admin/">Entrar</a>
+                    </div>
+                    <div class="clean"></div>
+                </div>
+                <div class="tools">
+                    <div class="subtitulo">
+                        Organizaciones de Zona Seca y Zona Alta <br>
+                        de Nicaragua
+                    </div>
+                    <div class="nav">
+                        <a href="/" class="init">Inicio</a>
+                        <a href="/index/" class="query">Consulta</a>
+                        <a href="/acerca/" class="about">Acerca</a>
+                    </div>
+                    <div class="clean"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clean"></div>
+        <div id="user1">
+            <div class="wrapper">
+                {% block filtros %}
+                <div id="filtros">
+                    <a href="/index/" class="cambiar_consulta">Variables</a>
+                    <img src="/archivos/imagen/separador.png" alt="separador" class="separador_vert">
+                    <div class="filtros_seleccionados_text">Filtros <br>seleccionados</div>                    
+                    {%if num_familias%}<span class="variables_filtro"><b>Familias</b>{{num_familias}}</span>{%endif%}
+                    {%if request.session.fecha%}<span class="variables_filtro"><b>Año</b>{{request.session.fecha}}</span>{%endif%}
+                    {%if request.session.departamento%}<span class="variables_filtro"><b>Departamento</b>{{request.session.departamento}}</span>{%endif%}
+                    {%if request.session.municipio.nombre%}<span class="variables_filtro"><b>Municipio</b>{{request.session.municipio.nombre}}</span>{%endif%}
+                    {%if request.session.comunidad.nombre%}<span class="variables_filtro"><b>Comunidad</b>{{request.session.comunidad.nombre}}</span>{%endif%}
+                    {%if request.session.socio%}<span class="variables_filtro"><b>Socio</b>{%if request.session.socio = '1'%}Si{%else%}No{%endif%}</span>{%endif%}
+                    {%if request.session.desde%}<span class="variables_filtro"><b>Años de socio</b>{%if request.session.desde = '1'%}Menos de 5 {%else%}Mas de 5 {%endif%}</span>{%endif%}
+                    {%if request.session.duenio%}<span class="variables_filtro"><b>Tipo Dueño</b>{%if request.session.duenio = '1'%}Hombre{%endif%}{%if request.session.duenio = '2'%}Mujer{%endif%}{%if request.session.duenio = '3'%}Mancomunado{%endif%}{%if request.session.duenio = '4'%}Parientes{%endif%}{%if request.session.duenio = '5'%}Colectivo{%endif%}{%if request.session.duenio = '6'%}No hay{%endif%}</span>{%endif%}
+                </div>
+                {% endblock %}
+                {% block index %}{% endblock %}
+            </div>
+        </div>
+        <div id="user2">
+            <div class="wrapper1">
+                <div id="titulo">
+                    {% block titulo %}{% endblock %}
+                </div>
+                {% block contenido %}
+
+                {% endblock %}
+            </div>
+        </div>
+        <div id="footer">
+            <div class="wrapper">
+                <div class="organizaciones">
+                    <span class="title">Organizaciones</span><br>
+                    <span class="zonas">Zona Alta &nbsp;|</span>&nbsp;UNAG&nbsp;<span class="zonas">&bull;</span>&nbsp;PCAC&nbsp;<span class="zonas">&bull;</span>&nbsp;ADDAC<br>
+                    <span class="zonas">Zona Seca |</span>&nbsp;ASODEL&nbsp;<span class="zonas">&bull;</span>&nbsp;APRODESE&nbsp;<span class="zonas">&bull;</span>&nbsp;FLM&nbsp;
+                </div>
+                <div class="made">
+                    <div class="developed">
+                        Desarrollado por <a href="http://simas.org.ni">SIMAS</a><br>
+                        Plataforma <a href="http://djangoproject.com">Django</a>
+                    </div>
+                </div>
+                <div class="clean"></div>                
+            </div>
+        </div>
+    </body>
+</html>
