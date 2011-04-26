@@ -28,7 +28,11 @@ class Variedades(models.Model):
         verbose_name_plural = "Variedades"
         ordering = ['cultivo']
 
-CHOICE_ORIGEN = ((1,'Nativo'), (2,'Introducido'))
+CHOICE_ORIGEN = (
+                    (1,'Criolla'), 
+                    (2,'Acriollada'),
+                    (2,'Mejorada'),
+                )
 
 class Semilla(models.Model):
     ''' uso de semilla

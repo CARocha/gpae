@@ -128,8 +128,11 @@ class Disponibilidad(models.Model):
 
     class Meta:
         verbose_name_plural = "Disponibilidad de agua para consumo"
-        #app_label = "Indicador 01 Agua"
-        #db_table = "simas_disponibilidad"
+        
+class UsoAgua(models.Model):
+    nombre = models.CharField(max_length=200)
+    def __unicode__(self):
+        return self.nombre
 
 class Agua(models.Model):
     ''' 1.4 Agua de consumo
@@ -137,11 +140,10 @@ class Agua(models.Model):
     fuente = models.ManyToManyField(Fuente, verbose_name="Fuente de consumo de agua")
     trata = models.ManyToManyField(Tratamiento, verbose_name="¿Cómo se trata el agua para consumo")
     disponible = models.ManyToManyField(Disponibilidad, verbose_name="Disponibilidad de agua para consumo")
+    uso = models.ManyToManyField(UsoAgua, verbose_name="Uso del agua")
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
         verbose_name_plural = "Agua"
-        #app_label = "Indicador 01 Agua"
-        #db_table = "simas_agua"
 
 #-------------------------------------------------------------------------------

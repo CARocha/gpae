@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from monitoreo.settings import *
+import settings
 from os import path as os_path
 
 # Uncomment the next two lines to enable the admin:
@@ -17,10 +17,11 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^$', 'monitoreo.grupo_gpae.views.index'),
     (r'^', include('monitoreo.grupo_gpae.urls')),
+    
 )
 
-if DEBUG:
+if settings.DEBUG:
     urlpatterns += patterns('',
                             (r'^archivos/(.*)$', 'django.views.static.serve',
-                             {'document_root': os_path.join(MEDIA_ROOT)}),
+                             {'document_root': os_path.join(settings.MEDIA_ROOT)}),
                            )

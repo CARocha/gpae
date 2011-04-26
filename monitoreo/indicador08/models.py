@@ -15,8 +15,6 @@ class Animales(models.Model):
 
     class Meta:
         verbose_name_plural = "Finca - Animales"
-        #app_label = "Indicador 08 Produccion y animales en la finca"
-        #db_table = "simas_animales"
 
 class ProductoAnimal(models.Model):
     nombre = models.CharField(max_length=100)
@@ -27,15 +25,19 @@ class ProductoAnimal(models.Model):
 
     class Meta:
         verbose_name_plural = "Finca - Producto"
-        #app_label = "Indicador 08 Produccion y animales en la finca"
-        #db_table = "simas_productoanimal"
 
+CHOICE_PERDIDA = (
+                    (1, 'Robo'),
+                    (2, 'Perdidas'),
+                    (3, 'Desc'),
+                 )
 
 class AnimalesFinca(models.Model):
     ''' Modelo animales en la finca
     '''
     animales = models.ForeignKey(Animales)
     cantidad = models.FloatField()
+    perdida = models.IntegerField(choices=CHOICE_PERDIDA, blank=True, null=True)
     produccion = models.ForeignKey(ProductoAnimal)
     total_produccion = models.IntegerField('Total producion por año', null=True)
     consumo = models.FloatField('Consumo')
@@ -48,7 +50,5 @@ class AnimalesFinca(models.Model):
     
     class Meta:
         verbose_name_plural = "Animales en la finca"
-        #app_label = "Indicador 08 Produccion y animales en la finca"
-        #db_table = "simas_animalesfinca"
 
 #-------------------------------------------------------------------------------

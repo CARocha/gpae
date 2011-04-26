@@ -22,15 +22,19 @@ class Rubros(models.Model):
         
     class Meta:
         verbose_name_plural = "IngresoFamiliar-Rubros"
-        #app_label = "Indicador 13 Ingreso Familiar"
-        #db_table = "simas_rubros"
+
+CHOICE_MANEJO = (
+                    (1, 'Marca GPAE'),
+                    (2, 'Certificado')
+                )
 
 class IngresoFamiliar(models.Model):
     ''' Modelo Ingreso familiar. venta de rubros
     '''
     rubro = models.ForeignKey(Rubros)
     cantidad = models.IntegerField('Cantidad vendida en el año pasado',null=True, blank=True)
-    precio = models.IntegerField('Precio de venta por unidad',null=True, blank=True)
+    precio = models.IntegerField('Precio de venta por unidad C$',null=True, blank=True)
+    venta = models.IntegerField(choices=CHOICE_MANEJO, null=True, blank=True)
     quien_vendio = models.IntegerField('¿A quien vendio?', choices=CHOICE_VENDIO,null=True, blank=True)
     maneja_negocio = models.IntegerField('¿Quién maneja el negocio', choices=CHOICE_MANEJA,null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
@@ -40,7 +44,5 @@ class IngresoFamiliar(models.Model):
     
     class Meta:
         verbose_name_plural = "Ingreso Familiar"
-        #app_label = "Indicador 13 Ingreso Familiar"
-        #db_table = "simas_ingresofamiliar"
 
 #-------------------------------------------------------------------------------

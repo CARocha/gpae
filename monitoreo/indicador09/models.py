@@ -16,8 +16,21 @@ class Cultivos(models.Model):
 
     class Meta:
         verbose_name_plural = "CultivosFinca-Cultivos"
-        #app_label = "Indicador 09 cultivos en la finca"
-        #db_table = "simas_cultivos"
+
+CHOICE_MANEJO = (
+                    (1, 'Cov'),
+                    (2, 'Agro')
+                )
+              
+CHOICE_TOTAL = (
+                    (1, 'Cov'),
+                    (2, 'Agro')
+                )
+                
+class Excedente(models.Model):
+    nombre = models.CharField(max_length=200)
+    def __unicode__(self):
+        return self.nombre
 
 
 class CultivosFinca(models.Model):
@@ -25,10 +38,12 @@ class CultivosFinca(models.Model):
     '''
     cultivos = models.ForeignKey(Cultivos)
     area =  models.FloatField('Área/Mz')
-    total = models.FloatField('Total producción por año')
     consumo = models.FloatField('Consumo por año')
-    venta_libre = models.FloatField('Venta libre por año')
-    venta_organizada = models.FloatField('Venta organizada por año')
+    manejo = models.IntegerField('Manejo de area Producida', choices=CHOICE_MANEJO, blank=True, null=True)
+    total_produccion = models.IntegerField('Total producción al año', choices=CHOICE_TOTAL, blank=True, null=True)
+    venta_libre = models.FloatField('Venta por año marca GPAE', blank=True, null=True)
+    venta_organizada = models.FloatField('Venta por año Libre', blank=True, null=True)
+    excedente = models.ManyToManyField(Excedente, verbose_name="Excedentes")
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):
