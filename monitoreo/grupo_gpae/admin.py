@@ -153,21 +153,32 @@ class RiesgosInline(admin.TabularInline):
     extra = 1
    
 class EncuestaAdmin(admin.ModelAdmin):
+    def save_model(self, request, obj, form, change):
+        obj.user = request.user
+        obj.save()
+        
     def queryset(self, request):
+        qs = super(EncuestaAdmin, self).queryset(request)
         if request.user.is_superuser:
-            return Encuesta.objects.all()
-        return Encuesta.objects.filter(user=request.user)
+            return qs
+        return qs.filter(user=request.user)
+        
+#    def queryset(self, request):
+#        if request.user.is_superuser:
+#            return Encuesta.objects.all()
+#        return Encuesta.objects.filter(user=request.user)
 
-    def get_form(self, request, obj=None, ** kwargs):
-        if request.user.is_superuser:
-            form = super(EncuestaAdmin, self).get_form(self, request, ** kwargs)
-        else:
-            form = super(EncuestaAdmin, self).get_form(self, request, ** kwargs)
-            form.base_fields['user'].queryset = User.objects.filter(pk=request.user.pk)
-        return form
+#    def get_form(self, request, obj=None, ** kwargs):
+#        if request.user.is_superuser:
+#            form = super(EncuestaAdmin, self).get_form(self, request, ** kwargs)
+#        else:
+#            form = super(EncuestaAdmin, self).get_form(self, request, ** kwargs)
+#            form.base_fields['user'].queryset = User.objects.filter(pk=request.user.pk)
+#        return form
         
     save_on_top = True
     actions_on_top = True
+    exclude = ('user',)
     inlines = [EducacionInline, SaludInline, EnergiaInline, CocinaInline,
                AguaInline, OrganizacionGremialInline, OrganizacionComunitariaInline,
                TenenciaInline, UsoTierraInline, ExistenciaArbolesInline,
