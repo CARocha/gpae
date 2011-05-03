@@ -17,15 +17,15 @@ class Cultivos(models.Model):
     class Meta:
         verbose_name_plural = "CultivosFinca-Cultivos"
 
-CHOICE_MANEJO = (
-                    (1, 'Cov'),
-                    (2, 'Agro')
-                )
-              
-CHOICE_TOTAL = (
-                    (1, 'Cov'),
-                    (2, 'Agro')
-                )
+#CHOICE_MANEJO = (
+#                    (1, 'Cov'),
+#                    (2, 'Agro')
+#                )
+#              
+#CHOICE_TOTAL = (
+#                    (1, 'Cov'),
+#                    (2, 'Agro')
+#                )
                 
 class Excedente(models.Model):
     nombre = models.CharField(max_length=200)
@@ -39,8 +39,10 @@ class CultivosFinca(models.Model):
     cultivos = models.ForeignKey(Cultivos)
     area =  models.FloatField('Área/Mz')
     consumo = models.FloatField('Consumo por año')
-    manejo = models.IntegerField('Manejo de area Producida', choices=CHOICE_MANEJO, blank=True, null=True)
-    total_produccion = models.IntegerField('Total producción al año', choices=CHOICE_TOTAL, blank=True, null=True)
+    manejo_conv = models.FloatField('Manejo de área producida conv', blank=True, null=True)
+    manejo_agro = models.FloatField('Manejo de área producida agro', blank=True, null=True)
+    prod_conv =  models.FloatField('Total Producción año conv', blank=True, null=True)
+    prod_agro =  models.FloatField('Total Producción año agro', blank=True, null=True)
     venta_libre = models.FloatField('Venta por año marca GPAE', blank=True, null=True)
     venta_organizada = models.FloatField('Venta por año Libre', blank=True, null=True)
     excedente = models.ManyToManyField(Excedente, verbose_name="Excedentes")
@@ -51,7 +53,5 @@ class CultivosFinca(models.Model):
     
     class Meta:
         verbose_name_plural = "Cultivos en la finca"
-        #app_label = "Indicador 09 cultivos en la finca"
-        #db_table = "simas_cultivosfinca"
 
 #-------------------------------------------------------------------------------

@@ -26,18 +26,14 @@ class ProductoAnimal(models.Model):
     class Meta:
         verbose_name_plural = "Finca - Producto"
 
-CHOICE_PERDIDA = (
-                    (1, 'Robo'),
-                    (2, 'Perdidas'),
-                    (3, 'Desc'),
-                 )
-
 class AnimalesFinca(models.Model):
     ''' Modelo animales en la finca
     '''
     animales = models.ForeignKey(Animales)
     cantidad = models.FloatField()
-    perdida = models.IntegerField(choices=CHOICE_PERDIDA, blank=True, null=True)
+    robo = models.IntegerField('Perdida por robos', blank=True, null=True)
+    muerte = models.IntegerField('Perdida por muerte', blank=True, null=True)
+    desc = models.IntegerField('Perdida por desc', blank=True, null=True)
     produccion = models.ForeignKey(ProductoAnimal)
     total_produccion = models.IntegerField('Total producion por año', null=True)
     consumo = models.FloatField('Consumo')
