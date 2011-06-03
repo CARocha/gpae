@@ -25,7 +25,8 @@ class Rubros(models.Model):
 
 CHOICE_MANEJO = (
                     (1, 'Marca GPAE'),
-                    (2, 'Certificado')
+                    (2, 'Certificado'),
+                    (3, 'Normal')
                 )
 
 class IngresoFamiliar(models.Model):
