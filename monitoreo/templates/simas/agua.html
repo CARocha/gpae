@@ -20,13 +20,14 @@
         $.getJSON(url + id, function(data) {
             if (activo!= url + id){
                 $("#grafo").html('<img src="' + data.url + '" />');
+                cargar_altura();
                 activo = url + id;
             }else{
                 $("#grafo").html('');
+                cargar_altura();
                 activo = 0;
             }
-        });
-        cargar_altura();
+        });        
     }
     function disp(id){
         click_callback('/grafo/agua-disponibilidad/', id);        
