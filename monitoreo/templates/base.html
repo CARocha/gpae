@@ -7,6 +7,9 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
+				cargar_altura();
+			});
+			function cargar_altura(){
 				var alto_sidebar = $('.sidebar').height();
 				var alto_cuerpo = $('.cuerpo').height();
 				if(alto_sidebar > alto_cuerpo){
@@ -14,7 +17,7 @@
 				}else{
 					$('.sidebar').height(alto_cuerpo);
 				}
-			});
+			}
 		</script>
 		{%block extra_header%}{%endblock%}
     </head>
