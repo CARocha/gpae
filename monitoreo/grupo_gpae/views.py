@@ -858,17 +858,20 @@ def usosemilla(request):
         frecuencia = query.count()
         frec = query.filter(semilla__cultivo=k).count()
         porce = saca_porcentajes(frec,num_familia)
-        nativos = query.filter(semilla__cultivo=k,semilla__origen=1).aggregate(nativos=Count('semilla__origen'))['nativos']
-        introducidos = query.filter(semilla__cultivo=k,semilla__origen=2).aggregate(introducidos=Count('semilla__origen'))['introducidos']
-        suma_semilla = nativos + introducidos
-        por_nativos = saca_porcentajes(nativos, suma_semilla)
-        por_introducidos = saca_porcentajes(introducidos, suma_semilla)
+        criolla = query.filter(semilla__cultivo=k,semilla__origen=1).aggregate(criolla=Count('semilla__origen'))['criolla']
+        acriollada = query.filter(semilla__cultivo=k,semilla__origen=2).aggregate(acriollada=Count('semilla__origen'))['acriollada']
+        mejorada = query.filter(semilla__cultivo=k,semilla__origen=3).aggregate(mejorada=Count('semilla__origen'))['mejorada']
+        suma_semilla = criolla + acriollada + mejorada
+        por_criolla = saca_porcentajes(criolla, suma_semilla)
+        por_acriollada = saca_porcentajes(acriollada, suma_semilla)
+        por_mejorada = saca_porcentajes(mejorada, suma_semilla)
         
-        lista.append([key,key2,frec,porce,nativos,por_nativos,
-                      introducidos,por_introducidos])
+        lista.append([key,key2,frec,porce,criolla,por_criolla,
+                      acriollada,por_acriollada,mejorada,por_mejorada])
         
-        tabla[key] = {'key2':key2,'frec':frec,'porce':porce,'nativos':nativos,'introducidos':introducidos,
-                      'por_nativos':por_nativos,'por_introducidos':por_introducidos}              
+        tabla[key] = {'key2':key2,'frec':frec,'porce':porce,'criolla':criolla,'acriollada':acriollada,
+                      'por_criolla':por_criolla,'por_acriollada':por_acriollada,'mejorada':mejorada,
+                      'por_mejorada':por_mejorada}              
                       
     return render_to_response('simas/semilla.html',{'tabla':tabla,'lista':lista,
                               'num_familias':num_familia},
