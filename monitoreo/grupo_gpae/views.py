@@ -266,9 +266,10 @@ def luz(request):
         else:
             fila = [choice.pregunta, 
                     resultados,
-                    saca_porcentajes(resultados, total_tiene_luz, False)]
+                    saca_porcentajes(resultados, consulta.count(), False)]
             tabla.append(fila)
     print total_tiene_luz
+    print fila
 
     return render_to_response('simas/luz.html', 
                               {'tabla':tabla, 'num_familias': consulta.count()},
@@ -552,11 +553,11 @@ def cultivos(request):
         key = slugify(i.nombre).replace('-', '_')
         key2 = slugify(i.unidad).replace('-', '_')
         query = a.filter(cultivosfinca__cultivos = i)
-        totales = query.aggregate(total=Sum('cultivosfinca__total'))['total']
+        #totales = query.aggregate(total=Sum('cultivosfinca__total'))['total']
         consumo = query.aggregate(consumo=Sum('cultivosfinca__consumo'))['consumo']
         libre = query.aggregate(libre=Sum('cultivosfinca__venta_libre'))['libre']
         organizada =query.aggregate(organizada=Sum('cultivosfinca__venta_organizada'))['organizada']
-        tabla[key] = {'key2':key2,'totales':totales,'consumo':consumo,'libre':libre,'organizada':organizada}
+        tabla[key] = {'key2':key2,'consumo':consumo,'libre':libre,'organizada':organizada}
     
     return render_to_response('simas/cultivos.html',
                              {'tabla':tabla,'num_familias':num_familias},
@@ -820,7 +821,8 @@ def opcionesmanejo(request):
                                      opcionesmanejo__menor_escala=2).aggregate(menor_escala2=
                                      Count('opcionesmanejo__menor_escala'))['menor_escala2']
         total_menor = menor_escala + menor_escala2
-        por_menor_escala = saca_porcentajes(total_menor,num_familia)
+        por_menor_escala = saca_porcentajes(menor_escala,num_familia)
+        
         # vamos ahora con la mayor escala
         
         mayor_escala = query.filter(opcionesmanejo__uso=u,
@@ -830,7 +832,7 @@ def opcionesmanejo(request):
                                     opcionesmanejo__mayor_escala=2).aggregate(mayor_escala2=
                                     Count('opcionesmanejo__mayor_escala'))['mayor_escala2']
         total_mayor = mayor_escala + mayor_escala2
-        por_mayor_escala = saca_porcentajes(total_mayor, num_familia)
+        por_mayor_escala = saca_porcentajes(mayor_escala, num_familia)
         tabla_escala[key] = {'menor_escala':menor_escala,'menor_escala2':menor_escala2,
                              'mayor_escala':mayor_escala,'mayor_escala2':mayor_escala2,
                              'por_menor_escala':por_menor_escala,'por_mayor_escala':por_mayor_escala}
@@ -857,17 +859,20 @@ def usosemilla(request):
         frecuencia = query.count()
         frec = query.filter(semilla__cultivo=k).count()
         porce = saca_porcentajes(frec,num_familia)
-        nativos = query.filter(semilla__cultivo=k,semilla__origen=1).aggregate(nativos=Count('semilla__origen'))['nativos']
-        introducidos = query.filter(semilla__cultivo=k,semilla__origen=2).aggregate(introducidos=Count('semilla__origen'))['introducidos']
-        suma_semilla = nativos + introducidos
-        por_nativos = saca_porcentajes(nativos, suma_semilla)
-        por_introducidos = saca_porcentajes(introducidos, suma_semilla)
+        criolla = query.filter(semilla__cultivo=k,semilla__origen=1).aggregate(criolla=Count('semilla__origen'))['criolla']
+        acriollada = query.filter(semilla__cultivo=k,semilla__origen=2).aggregate(acriollada=Count('semilla__origen'))['acriollada']
+        mejorada = query.filter(semilla__cultivo=k,semilla__origen=3).aggregate(mejorada=Count('semilla__origen'))['mejorada']
+        suma_semilla = criolla + acriollada + mejorada
+        por_criolla = saca_porcentajes(criolla, suma_semilla)
+        por_acriollada = saca_porcentajes(acriollada, suma_semilla)
+        por_mejorada = saca_porcentajes(mejorada, suma_semilla)
         
-        lista.append([key,key2,frec,porce,nativos,por_nativos,
-                      introducidos,por_introducidos])
+        lista.append([key,key2,frec,porce,criolla,por_criolla,
+                      acriollada,por_acriollada,mejorada,por_mejorada])
         
-        tabla[key] = {'key2':key2,'frec':frec,'porce':porce,'nativos':nativos,'introducidos':introducidos,
-                      'por_nativos':por_nativos,'por_introducidos':por_introducidos}              
+        tabla[key] = {'key2':key2,'frec':frec,'porce':porce,'criolla':criolla,'acriollada':acriollada,
+                      'por_criolla':por_criolla,'por_acriollada':por_acriollada,'mejorada':mejorada,
+                      'por_mejorada':por_mejorada}              
                       
     return render_to_response('simas/semilla.html',{'tabla':tabla,'lista':lista,
                               'num_familias':num_familia},
