@@ -44,215 +44,209 @@
     <div class="separador"></div>
 </div>
 <div class="cuerpo">
-	<div id="grafo"></div>
-<div>
-    <table>
-    <caption>Agua de consumo</caption>
-        <thead>
-            <tr>
-                <th>Fuente</th>
-                <th>Frecuencia</th>
-                <th>%</th>
-            </tr>
-        </thead>
-        {% for fila in tabla%}
-        <tr>
-            {%for celda in fila%}
-            <td>{{celda}}</td>
-            {%endfor%}
-        </tr>
-        {%endfor%}
-    </table>       
-</div>
+	<div id="grafo"><img src="http://chart.apis.google.com/chart?cht=p3&chs=600x350&chd=s:fPAP&chtt=Disponibilidad%20del%20agua%20en%20Ojo%20de%20agua&chdl=Todos%20los%20dias%20y%20todas%20las%20horas|Todos%20los%20dias%20algunas%20horas|Algunos%20dias%20algunas%20horas|No%20confiable&chdlp=b&chco=FFBC13,22A410,E6EC23,2B2133,BD0915,3D43BD&chl=50.00%25|25.00%25|0.00%25|25.00%25"></div>
+	<div>
+		<table>
+			<caption>Agua de consumo</caption>
+			<thead>
+				<tr>
+					<th>Fuente</th>
+					<th>Frecuencia</th>
+					<th>%</th>
+				</tr>
+			</thead>
+			{% for fila in tabla%}
+			<tr>
+				{%for celda in fila%}
+				<td>{{celda}}</td> 
+				{%endfor%}
+			</tr>
+			{%endfor%}
+		</table>
+	</div>
 	<div class="clean"></div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("#grafico1").click(function(){
-            $("#grafico1").addClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-            $("#grafico7").removeClass('enlace_seleccionado');
-            $("#grafico8").removeClass('enlace_seleccionado');
-            $("#grafico9").removeClass('enlace_seleccionado');
-            $("#grafico10").removeClass('enlace_seleccionado');
-            $("#grafico11").removeClass('enlace_seleccionado');
-            $("#grafico12").removeClass('enlace_seleccionado');
-        });
-    
-        $("#grafico2").click(function(){
-            $("#grafico2").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-            $("#grafico7").removeClass('enlace_seleccionado');
-            $("#grafico8").removeClass('enlace_seleccionado');
-            $("#grafico9").removeClass('enlace_seleccionado');
-            $("#grafico10").removeClass('enlace_seleccionado');
-            $("#grafico11").removeClass('enlace_seleccionado');
-            $("#grafico12").removeClass('enlace_seleccionado');
-        });
+	$(document).ready(function() {
+		$("#grafico1").click(function() {
+			$("#grafico1").addClass('enlace_seleccionado');
+			$("#grafico2").removeClass('enlace_seleccionado');
+			$("#grafico3").removeClass('enlace_seleccionado');
+			$("#grafico4").removeClass('enlace_seleccionado');
+			$("#grafico5").removeClass('enlace_seleccionado');
+			$("#grafico6").removeClass('enlace_seleccionado');
+			$("#grafico7").removeClass('enlace_seleccionado');
+			$("#grafico8").removeClass('enlace_seleccionado');
+			$("#grafico9").removeClass('enlace_seleccionado');
+			$("#grafico10").removeClass('enlace_seleccionado');
+			$("#grafico11").removeClass('enlace_seleccionado');
+			$("#grafico12").removeClass('enlace_seleccionado');
+		});
 
-        $("#grafico3").click(function(){
-            $("#grafico3").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-            $("#grafico7").removeClass('enlace_seleccionado');
-            $("#grafico8").removeClass('enlace_seleccionado');
-            $("#grafico9").removeClass('enlace_seleccionado');
-            $("#grafico10").removeClass('enlace_seleccionado');
-            $("#grafico11").removeClass('enlace_seleccionado');
-            $("#grafico12").removeClass('enlace_seleccionado');
-        });
-        $("#grafico4").click(function(){
-            $("#grafico4").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-            $("#grafico7").removeClass('enlace_seleccionado');
-            $("#grafico8").removeClass('enlace_seleccionado');
-            $("#grafico9").removeClass('enlace_seleccionado');
-            $("#grafico10").removeClass('enlace_seleccionado');
-            $("#grafico11").removeClass('enlace_seleccionado');
-            $("#grafico12").removeClass('enlace_seleccionado');
-        });
+		$("#grafico2").click(function() {
+			$("#grafico2").addClass('enlace_seleccionado');
+			$("#grafico1").removeClass('enlace_seleccionado');
+			$("#grafico3").removeClass('enlace_seleccionado');
+			$("#grafico4").removeClass('enlace_seleccionado');
+			$("#grafico5").removeClass('enlace_seleccionado');
+			$("#grafico6").removeClass('enlace_seleccionado');
+			$("#grafico7").removeClass('enlace_seleccionado');
+			$("#grafico8").removeClass('enlace_seleccionado');
+			$("#grafico9").removeClass('enlace_seleccionado');
+			$("#grafico10").removeClass('enlace_seleccionado');
+			$("#grafico11").removeClass('enlace_seleccionado');
+			$("#grafico12").removeClass('enlace_seleccionado');
+		});
 
-        $("#grafico5").click(function(){
-            $("#grafico5").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-            $("#grafico7").removeClass('enlace_seleccionado');
-            $("#grafico8").removeClass('enlace_seleccionado');
-            $("#grafico9").removeClass('enlace_seleccionado');
-            $("#grafico10").removeClass('enlace_seleccionado');
-            $("#grafico11").removeClass('enlace_seleccionado');
-            $("#grafico12").removeClass('enlace_seleccionado');
-        });
+		$("#grafico3").click(function() {
+			$("#grafico3").addClass('enlace_seleccionado');
+			$("#grafico1").removeClass('enlace_seleccionado');
+			$("#grafico2").removeClass('enlace_seleccionado');
+			$("#grafico4").removeClass('enlace_seleccionado');
+			$("#grafico5").removeClass('enlace_seleccionado');
+			$("#grafico6").removeClass('enlace_seleccionado');
+			$("#grafico7").removeClass('enlace_seleccionado');
+			$("#grafico8").removeClass('enlace_seleccionado');
+			$("#grafico9").removeClass('enlace_seleccionado');
+			$("#grafico10").removeClass('enlace_seleccionado');
+			$("#grafico11").removeClass('enlace_seleccionado');
+			$("#grafico12").removeClass('enlace_seleccionado');
+		});
+		$("#grafico4").click(function() {
+			$("#grafico4").addClass('enlace_seleccionado');
+			$("#grafico1").removeClass('enlace_seleccionado');
+			$("#grafico2").removeClass('enlace_seleccionado');
+			$("#grafico3").removeClass('enlace_seleccionado');
+			$("#grafico5").removeClass('enlace_seleccionado');
+			$("#grafico6").removeClass('enlace_seleccionado');
+			$("#grafico7").removeClass('enlace_seleccionado');
+			$("#grafico8").removeClass('enlace_seleccionado');
+			$("#grafico9").removeClass('enlace_seleccionado');
+			$("#grafico10").removeClass('enlace_seleccionado');
+			$("#grafico11").removeClass('enlace_seleccionado');
+			$("#grafico12").removeClass('enlace_seleccionado');
+		});
 
-        $("#grafico6").click(function(){
-            $("#grafico6").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico7").removeClass('enlace_seleccionado');
-            $("#grafico8").removeClass('enlace_seleccionado');
-            $("#grafico9").removeClass('enlace_seleccionado');
-            $("#grafico10").removeClass('enlace_seleccionado');
-            $("#grafico11").removeClass('enlace_seleccionado');
-            $("#grafico12").removeClass('enlace_seleccionado');
-        });
+		$("#grafico5").click(function() {
+			$("#grafico5").addClass('enlace_seleccionado');
+			$("#grafico1").removeClass('enlace_seleccionado');
+			$("#grafico2").removeClass('enlace_seleccionado');
+			$("#grafico3").removeClass('enlace_seleccionado');
+			$("#grafico4").removeClass('enlace_seleccionado');
+			$("#grafico6").removeClass('enlace_seleccionado');
+			$("#grafico7").removeClass('enlace_seleccionado');
+			$("#grafico8").removeClass('enlace_seleccionado');
+			$("#grafico9").removeClass('enlace_seleccionado');
+			$("#grafico10").removeClass('enlace_seleccionado');
+			$("#grafico11").removeClass('enlace_seleccionado');
+			$("#grafico12").removeClass('enlace_seleccionado');
+		});
 
+		$("#grafico6").click(function() {
+			$("#grafico6").addClass('enlace_seleccionado');
+			$("#grafico1").removeClass('enlace_seleccionado');
+			$("#grafico2").removeClass('enlace_seleccionado');
+			$("#grafico3").removeClass('enlace_seleccionado');
+			$("#grafico4").removeClass('enlace_seleccionado');
+			$("#grafico5").removeClass('enlace_seleccionado');
+			$("#grafico7").removeClass('enlace_seleccionado');
+			$("#grafico8").removeClass('enlace_seleccionado');
+			$("#grafico9").removeClass('enlace_seleccionado');
+			$("#grafico10").removeClass('enlace_seleccionado');
+			$("#grafico11").removeClass('enlace_seleccionado');
+			$("#grafico12").removeClass('enlace_seleccionado');
+		});
 
-        $("#grafico7").click(function(){
-            $("#grafico7").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-            $("#grafico8").removeClass('enlace_seleccionado');
-            $("#grafico9").removeClass('enlace_seleccionado');
-            $("#grafico10").removeClass('enlace_seleccionado');
-            $("#grafico11").removeClass('enlace_seleccionado');
-            $("#grafico12").removeClass('enlace_seleccionado');
-        });
+		$("#grafico7").click(function() {
+			$("#grafico7").addClass('enlace_seleccionado');
+			$("#grafico1").removeClass('enlace_seleccionado');
+			$("#grafico2").removeClass('enlace_seleccionado');
+			$("#grafico3").removeClass('enlace_seleccionado');
+			$("#grafico4").removeClass('enlace_seleccionado');
+			$("#grafico5").removeClass('enlace_seleccionado');
+			$("#grafico6").removeClass('enlace_seleccionado');
+			$("#grafico8").removeClass('enlace_seleccionado');
+			$("#grafico9").removeClass('enlace_seleccionado');
+			$("#grafico10").removeClass('enlace_seleccionado');
+			$("#grafico11").removeClass('enlace_seleccionado');
+			$("#grafico12").removeClass('enlace_seleccionado');
+		});
 
+		$("#grafico8").click(function() {
+			$("#grafico8").addClass('enlace_seleccionado');
+			$("#grafico1").removeClass('enlace_seleccionado');
+			$("#grafico2").removeClass('enlace_seleccionado');
+			$("#grafico3").removeClass('enlace_seleccionado');
+			$("#grafico4").removeClass('enlace_seleccionado');
+			$("#grafico5").removeClass('enlace_seleccionado');
+			$("#grafico7").removeClass('enlace_seleccionado');
+			$("#grafico6").removeClass('enlace_seleccionado');
+			$("#grafico9").removeClass('enlace_seleccionado');
+			$("#grafico10").removeClass('enlace_seleccionado');
+			$("#grafico11").removeClass('enlace_seleccionado');
+			$("#grafico12").removeClass('enlace_seleccionado');
+		});
 
-        $("#grafico8").click(function(){
-            $("#grafico8").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico7").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-            $("#grafico9").removeClass('enlace_seleccionado');
-            $("#grafico10").removeClass('enlace_seleccionado');
-            $("#grafico11").removeClass('enlace_seleccionado');
-            $("#grafico12").removeClass('enlace_seleccionado');
-        });
+		$("#grafico9").click(function() {
+			$("#grafico9").addClass('enlace_seleccionado');
+			$("#grafico1").removeClass('enlace_seleccionado');
+			$("#grafico2").removeClass('enlace_seleccionado');
+			$("#grafico3").removeClass('enlace_seleccionado');
+			$("#grafico4").removeClass('enlace_seleccionado');
+			$("#grafico5").removeClass('enlace_seleccionado');
+			$("#grafico7").removeClass('enlace_seleccionado');
+			$("#grafico8").removeClass('enlace_seleccionado');
+			$("#grafico6").removeClass('enlace_seleccionado');
+			$("#grafico10").removeClass('enlace_seleccionado');
+			$("#grafico11").removeClass('enlace_seleccionado');
+			$("#grafico12").removeClass('enlace_seleccionado');
+		});
 
+		$("#grafico10").click(function() {
+			$("#grafico10").addClass('enlace_seleccionado');
+			$("#grafico1").removeClass('enlace_seleccionado');
+			$("#grafico2").removeClass('enlace_seleccionado');
+			$("#grafico3").removeClass('enlace_seleccionado');
+			$("#grafico4").removeClass('enlace_seleccionado');
+			$("#grafico5").removeClass('enlace_seleccionado');
+			$("#grafico7").removeClass('enlace_seleccionado');
+			$("#grafico8").removeClass('enlace_seleccionado');
+			$("#grafico9").removeClass('enlace_seleccionado');
+			$("#grafico6").removeClass('enlace_seleccionado');
+			$("#grafico11").removeClass('enlace_seleccionado');
+			$("#grafico12").removeClass('enlace_seleccionado');
+		});
 
-        $("#grafico9").click(function(){
-            $("#grafico9").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico7").removeClass('enlace_seleccionado');
-            $("#grafico8").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-            $("#grafico10").removeClass('enlace_seleccionado');
-            $("#grafico11").removeClass('enlace_seleccionado');
-            $("#grafico12").removeClass('enlace_seleccionado');
-        });
+		$("#grafico11").click(function() {
+			$("#grafico11").addClass('enlace_seleccionado');
+			$("#grafico1").removeClass('enlace_seleccionado');
+			$("#grafico2").removeClass('enlace_seleccionado');
+			$("#grafico3").removeClass('enlace_seleccionado');
+			$("#grafico4").removeClass('enlace_seleccionado');
+			$("#grafico5").removeClass('enlace_seleccionado');
+			$("#grafico7").removeClass('enlace_seleccionado');
+			$("#grafico8").removeClass('enlace_seleccionado');
+			$("#grafico9").removeClass('enlace_seleccionado');
+			$("#grafico10").removeClass('enlace_seleccionado');
+			$("#grafico6").removeClass('enlace_seleccionado');
+			$("#grafico12").removeClass('enlace_seleccionado');
+		});
 
+		$("#grafico12").click(function() {
+			$("#grafico12").addClass('enlace_seleccionado');
+			$("#grafico1").removeClass('enlace_seleccionado');
+			$("#grafico2").removeClass('enlace_seleccionado');
+			$("#grafico3").removeClass('enlace_seleccionado');
+			$("#grafico4").removeClass('enlace_seleccionado');
+			$("#grafico5").removeClass('enlace_seleccionado');
+			$("#grafico7").removeClass('enlace_seleccionado');
+			$("#grafico8").removeClass('enlace_seleccionado');
+			$("#grafico9").removeClass('enlace_seleccionado');
+			$("#grafico10").removeClass('enlace_seleccionado');
+			$("#grafico11").removeClass('enlace_seleccionado');
+			$("#grafico6").removeClass('enlace_seleccionado');
+		});
 
-        $("#grafico10").click(function(){
-            $("#grafico10").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico7").removeClass('enlace_seleccionado');
-            $("#grafico8").removeClass('enlace_seleccionado');
-            $("#grafico9").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-            $("#grafico11").removeClass('enlace_seleccionado');
-            $("#grafico12").removeClass('enlace_seleccionado');
-        });
-
-
-        $("#grafico11").click(function(){
-            $("#grafico11").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico7").removeClass('enlace_seleccionado');
-            $("#grafico8").removeClass('enlace_seleccionado');
-            $("#grafico9").removeClass('enlace_seleccionado');
-            $("#grafico10").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-            $("#grafico12").removeClass('enlace_seleccionado');
-        });
-
-
-        $("#grafico12").click(function(){
-            $("#grafico12").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico7").removeClass('enlace_seleccionado');
-            $("#grafico8").removeClass('enlace_seleccionado');
-            $("#grafico9").removeClass('enlace_seleccionado');
-            $("#grafico10").removeClass('enlace_seleccionado');
-            $("#grafico11").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-        });
-
-    });
+	});
 </script>
 {% endblock %}
