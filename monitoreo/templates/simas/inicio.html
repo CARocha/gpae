@@ -7,6 +7,9 @@
         var organizacion = document.getElementById("id_organizacion");
         var municipio = document.getElementById("id_municipio");
         var comunidad= document.getElementById("id_comunidad");
+        organizacion.options[0] = new Option("Organización");
+        municipio.options[0] = new Option("Municipio");
+        comunidad.options[0] = new Option("Comunidad");
         
         //municipios
         $("#id_departamento").change(function () {
@@ -16,7 +19,8 @@
             function(data){
                 municipio.options.length = 0;
                 comunidad.options.length = 0;
-                municipio.options[0] = new Option("--------");
+                municipio.options[0] = new Option("Municipio");
+                comunidad.options[0] = new Option("Comunidad");
                 for(i=0; i< data.length; i++){
                     municipio.options[i+1] = new Option(data[i][1], data[i][0]);
                 }
@@ -31,7 +35,7 @@
             function(data){
                 organizacion.options.length = 0;
                 organizacion.options.length = 0;
-                organizacion.options[0] = new Option("--------");
+                organizacion.options[0] = new Option("Organización");
                 for(i=0; i< data.length; i++){
                     organizacion.options[i+1] = new Option(data[i][1], data[i][0]);
                 }
@@ -45,7 +49,7 @@
             $.getJSON("ajax/comunidad/" + id +"/",
             function(data){
                 comunidad.options.length = 0;
-                comunidad.options[0] = new Option("---------");
+                comunidad.options[0] = new Option("Comunidad");
                 for(i=0; i< data.length; i++){
                     comunidad.options[i+1] = new Option(data[i][1], data[i][0]);
                 }
@@ -55,51 +59,48 @@
     });
 </script>
 {% endblock %}
-{% block titulo %}
-Filtros
-{% endblock %}
-
-{% block contenido %}
-<div class="contenido">    
-    <form action="." method="POST">
+{% block filtros %}
+	<div class="filtros_seleccion">
+		<div class="paso1"></div>	
+		<div class="seleccion">SELECCI&Oacute;N<br><span>Filtros de encuestas</span></div>
+	</div>
+	<div class="filtros_disponibles">
+		<form action="." method="POST">
         {% csrf_token %}
         <div class="formulario_consulta">            
             <div class="columna_uno">
-                <div class="form_label"><b>{{form.fecha.label}}</b></div>
-                <div class="form_widget">{{form.fecha}}</div>
+                <div class="form_widget date_widget"><img src="/archivos/imagen/fecha.png" alt=""> {{form.fecha}}<br>{{form.fecha.errors}}</div><br>                              
+                <div class="form_widget date_widget"><img src="/archivos/imagen/fecha.png" alt=""> {{form.desde}}</div>
             </div>
-            <div class="columna_dos">
-                <div class="form_label"><b>{{form.departamento.label}}</b></div>
-                <div class="form_widget">{{form.departamento}}</div>
-                <div class="form_label"><b>{{form.organizacion.label}}</b></div>
-                <div class="form_widget">{{form.organizacion}}</div>                
-                <div class="form_label"><b>{{form.municipio.label}}</b></div>
-                <div class="form_widget">{{form.municipio}}</div>
-                <div class="form_label"><b>{{form.comunidad.label}}</b></div>
-                <div class="form_widget">{{form.comunidad}}</div>
+            <div class="columna_dos">                
+                <div class="form_widget"><img src="/archivos/imagen/ubicacion.png" alt=""> {{form.departamento}}</div><br>
+                <div class="form_widget"><img src="/archivos/imagen/socio.png" alt=""> {{form.socio}}</div>                
             </div>
-            <div class="columna_tres">
-                <div class="form_label"><b>{{form.cooperativa.label}}</b></div>
-                <div class="form_widget"><b>{{form.cooperativa}}</b></div>
-                <div class="form_label"><b>{{form.socio.label}}</b></div>
-                <div class="form_widget">{{form.socio}}</div>
-                <div class="form_label"><b>{{form.desde.label}}</b></div>
-                <div class="form_widget">{{form.desde}}</div>
-                <div class="form_label"><b>{{form.dueno.label}}</b></div>
-                <div class="form_widget">{{form.dueno}}</div>
+            <div class="columna_tres">                
+                <div class="form_widget"><img src="/archivos/imagen/ubicacion.png" alt=""> {{form.municipio}}</div>
+                <div class="form_widget"><img src="/archivos/imagen/ubicacion.png" alt=""> {{form.organizacion}}</div>                
             </div>
             <div class="columna_cuatro">
-                <br><br>
-                <br><br>
-                <br><br>                
-                <input type="submit" value="Consultar" id="boton" class="filtro"/>
+            <div class="form_widget"><img src="/archivos/imagen/ubicacion.png" alt=""> {{form.comunidad}}</div>            
+            <div class="form_widget"><img src="/archivos/imagen/socio.png" alt=""> {{form.dueno}}</div>
             </div>
-            <div class="clean"></div>
+            <div class="clean"></div>            
+            <input type="submit" value="Consultar" class="consultar"/>
         </div>        
-    </form>
+    	</form>
+	</div>
+{% endblock %}
+
+{% block barra %}
+	<div class="selectos_seleccion">
+		<div class="paso2"></div>	
+		<div class="seleccion">SELECCI&Oacute;N<br><span>Filtros de encuestas</span></div>
+	</div>
+{% endblock %}
+
+{% block contenido %}
     {%if centinela = 1 %}
     {% include "simas/menu.html" %}        
     {%endif%}
     <div style="height: 5px;"></div>
-</div>
 {% endblock %}
