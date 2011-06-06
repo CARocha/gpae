@@ -5,7 +5,18 @@
         <title>{%block title%}Sistema de Informaci&oacute;n Monitoreo GPE{%endblock%}</title>
         <link href="/archivos/css/gpae.css" rel="stylesheet" type="text/css" media="all" title=""/>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-	{%block extra_header%}{%endblock%}
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var alto_sidebar = $('.sidebar').height();
+				var alto_cuerpo = $('.cuerpo').height();
+				if(alto_sidebar > alto_cuerpo){
+					$('.cuerpo').height(alto_sidebar);
+				}else{
+					$('.sidebar').height(alto_cuerpo);
+				}
+			});
+		</script>
+		{%block extra_header%}{%endblock%}
     </head>
     <body>
         <div id="header">
@@ -53,8 +64,8 @@
                 <div class="contenido">
                 	{% block contenido %}
 
-                	{% endblock %}
-                	<div class="clean"></div>
+                	{% endblock %}                	
+                	<div class="clean"></div>                	
                 </div>                
             </div>
         </div>
