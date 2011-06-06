@@ -108,8 +108,7 @@ def inicio(request):
             except:
                 municipio = None
             try:
-                comunidad = Comunidad.objects.get(id=form.cleaned_data['comunidad'])
-                
+                comunidad = Comunidad.objects.get(id=form.cleaned_data['comunidad'])                
             except:
                 comunidad = None
 
@@ -121,7 +120,9 @@ def inicio(request):
 
             mensaje = "Todas las variables estan correctamente :)"
             request.session['activo'] = True
-            centinela = 1 
+            centinela = 1
+        else:
+            centinela = 0            
     else:
         form = MonitoreoForm()
         mensaje = "Existen alguno errores"

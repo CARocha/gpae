@@ -1,14 +1,23 @@
 {% extends "base.html" %}
 
 {% block title %}Monitoreo - Familias{% endblock %}
-{%block titulo%}
-Familias
-<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
-{%endblock%}
+
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Familias
+</div>
+<div class="indicadores">
+	{% include "nav_familia.html" %}
+</div>
+{% endblock %}
+
 {% block contenido %}
-
-{% include "nav_familia.html" %}
-
-<div class="separador"></div>
-<br>
+<div class="sidebar">
+	<a href="#" class="grafo">Grafo 1</a>
+	<a href="#" class="grafo">Grafo 1</a>
+	<br><br>
+	<div class="clean"></div>
+</div>
+<div class="cuerpo">
+</div>
 {% endblock %}

@@ -11,6 +11,9 @@ body{
 .nav{
 	float: right;	
 }
+img{
+	border: none;
+}
 a{
 	outline: none;	
 }

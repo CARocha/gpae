@@ -69,7 +69,7 @@
         {% csrf_token %}
         <div class="formulario_consulta">            
             <div class="columna_uno">
-                <div class="form_widget date_widget"><img src="/archivos/imagen/fecha.png" alt=""> {{form.fecha}}</div>  <br>              
+                <div class="form_widget date_widget"><img src="/archivos/imagen/fecha.png" alt=""> {{form.fecha}}<br>{{form.fecha.errors}}</div><br>                              
                 <div class="form_widget date_widget"><img src="/archivos/imagen/fecha.png" alt=""> {{form.desde}}</div>
             </div>
             <div class="columna_dos">                
@@ -91,12 +91,16 @@
 	</div>
 {% endblock %}
 
+{% block barra %}
+	<div class="selectos_seleccion">
+		<div class="paso2"></div>	
+		<div class="seleccion">SELECCI&Oacute;N<br><span>Filtros de encuestas</span></div>
+	</div>
+{% endblock %}
+
 {% block contenido %}
-<div class="contenido">    
-    
     {%if centinela = 1 %}
     {% include "simas/menu.html" %}        
     {%endif%}
     <div style="height: 5px;"></div>
-</div>
 {% endblock %}

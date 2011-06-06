@@ -39,17 +39,23 @@
                 {% endblock %}
                 <div class="clean"></div>
                 </div>
-                {% block index %}{% endblock %}
+                <div id="selectos">
+                {% block barra %}{% endblock %}
+                <div class="clean"></div>
+                </div>                
             </div>
         </div>
         <div id="user2">
-            <div class="wrapper1">
+            <div class="wrapper">
                 <div id="titulo">
                     {% block titulo %}{% endblock %}
                 </div>
-                {% block contenido %}
+                <div class="contenido">
+                	{% block contenido %}
 
-                {% endblock %}
+                	{% endblock %}
+                	<div class="clean"></div>
+                </div>                
             </div>
         </div>
         <div class="footer">
