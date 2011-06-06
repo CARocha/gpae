@@ -266,9 +266,10 @@ def luz(request):
         else:
             fila = [choice.pregunta, 
                     resultados,
-                    saca_porcentajes(resultados, total_tiene_luz, False)]
+                    saca_porcentajes(resultados, consulta.count(), False)]
             tabla.append(fila)
     print total_tiene_luz
+    print fila
 
     return render_to_response('simas/luz.html', 
                               {'tabla':tabla, 'num_familias': consulta.count()},
@@ -552,11 +553,11 @@ def cultivos(request):
         key = slugify(i.nombre).replace('-', '_')
         key2 = slugify(i.unidad).replace('-', '_')
         query = a.filter(cultivosfinca__cultivos = i)
-        totales = query.aggregate(total=Sum('cultivosfinca__total'))['total']
+        #totales = query.aggregate(total=Sum('cultivosfinca__total'))['total']
         consumo = query.aggregate(consumo=Sum('cultivosfinca__consumo'))['consumo']
         libre = query.aggregate(libre=Sum('cultivosfinca__venta_libre'))['libre']
         organizada =query.aggregate(organizada=Sum('cultivosfinca__venta_organizada'))['organizada']
-        tabla[key] = {'key2':key2,'totales':totales,'consumo':consumo,'libre':libre,'organizada':organizada}
+        tabla[key] = {'key2':key2,'consumo':consumo,'libre':libre,'organizada':organizada}
     
     return render_to_response('simas/cultivos.html',
                              {'tabla':tabla,'num_familias':num_familias},

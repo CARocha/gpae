@@ -31,7 +31,7 @@ class Variedades(models.Model):
 CHOICE_ORIGEN = (
                     (1,'Criolla'), 
                     (2,'Acriollada'),
-                    (2,'Mejorada'),
+                    (3,'Mejorada'),
                 )
 
 class Semilla(models.Model):
