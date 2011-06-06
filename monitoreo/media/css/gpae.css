@@ -239,7 +239,8 @@ input[type='submit'].consultar:hover{
 	border-top: 1px #a7a7a7 solid;
 	border-left: 1px #a7a7a7 solid;
 	border-bottom: 1px #a7a7a7 solid;
-	margin-top: 5px;		
+	margin-top: 5px;	
+	font-size: 11px;	
 }
 .sidebar .grafo:hover{
 	color: #631d16;
