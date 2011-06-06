@@ -1,16 +1,13 @@
 {% extends "base.html" %}
 {%load unslugify %}
-{% block titulo %}
-Subindicador animales
-<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
-{% endblock%}
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Ánimales
+</div>
+{% endblock %}
 
 {% block contenido %}
-
-<div id="mostrar">
-     {% include "simas/menu.html" %}
-</div>
-
+<div class="cuerpo">
 <div class="contenido">
     <table>
         <caption>Los Animales</caption>
@@ -65,6 +62,7 @@ Subindicador animales
             {%endfor%}
         </tbody>
     </table>
+</div>
 </div>
 
 {% endblock %}

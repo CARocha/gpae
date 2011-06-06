@@ -1,18 +1,16 @@
 {% extends "base.html" %}
 {%load unslugify %}
-{% block titulo %}
-Subindicador Vulnerable
-<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
-{% endblock%}
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Riesgos
+</div>
+<div class="indicadores">
+	{% include "nav_riesgos.html" %}
+</div>
+{% endblock %}
 
 {% block contenido %}
-{% include "nav_riesgos.html" %}
-<div class="separador"></div>
-
-<div id="mostrar">
-     {% include "simas/menu.html" %}
-</div>
-<div class="contenido">
+<div class="cuerpo">
     <table>
         <caption>Vulnerabilidades de las fincas</caption>
         <thead>

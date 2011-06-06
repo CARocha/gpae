@@ -1,9 +1,14 @@
 {% extends "base.html"%}
 {%load unslugify %}
-{% block titulo %}
-Subindicador Manejo del Suelo
-<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
-{% endblock%}
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Suelo
+</div>
+<div class="indicadores">
+	{% include "nav_suelo.html" %}
+</div>
+{% endblock %}
+
 {% block extra_header %}
 <script type="text/javascript">
 
@@ -44,24 +49,18 @@ Subindicador Manejo del Suelo
 </script>
 {%endblock%}
 {% block contenido %}
-{% include "nav_suelo.html" %}
-<div class="separador"></div>
 
-<div id="mostrar">
-    {% include "simas/menu.html" %}
-</div>
-
-<div id="sidebar">
-    <div class="graficos_widget">
+<div class="sidebar">
+    
         <h1>Gráficos</h1>
-        <a href="#" id="grafico1" onCLick="click_callback('analisis')">Realiza analisis</a>
-        <a href="#" id="grafico2" onCLick="click_callback('practica')">Realiza practica</a>
-    </div>
+        <a href="#" id="grafico1" onCLick="click_callback('analisis')"class="grafo">Realiza analisis</a>
+        <a href="#" id="grafico2" onCLick="click_callback('practica')"class="grafo">Realiza practica</a>
+   
 </div>
 
+<div class="cuerpo">
 <div id="grafo"></div>
 
-<div class="contenido">
     <table>
         <caption>¿Cómo preparan sus terrenos?</caption>
         <thead>

@@ -1,19 +1,17 @@
 {% extends "base.html"%}
 {%load unslugify %}
-{% block titulo %}
-Subindicador Caracterización del Terrreno
-<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
-{% endblock%}
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Suelo
+</div>
+<div class="indicadores">
+	{% include "nav_suelo.html" %}
+</div>
+{% endblock %}
 
 {% block contenido %}
-{% include "nav_suelo.html" %}
-<div class="separador"></div>
 
-<div id="mostrar">
-    {% include "simas/menu.html" %}
-</div>
-
-<div class="contenido">
+<div class="cuerpo">
     <table>
         <caption>¿Cúal es el tipo de textura del suelo?</caption>
         <thead>

@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {%load unslugify %}
-{%block titulo%}
-Existencia de árboles y Reforestación
-<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
-{%endblock%}
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Existencia de árboles y Reforestación
+</div>
+<div class="indicadores">
+	{% include "nav_tierra.html" %}
+</div>
+{% endblock %}
 {% block extra_header %}
 <script type="text/javascript">
     var activo = 0;
@@ -61,24 +65,18 @@ Existencia de árboles y Reforestación
 </script>
 {% endblock %}
 {% block contenido %}
-{% include "nav_tierra.html" %}
-<div class="separador"></div>
 
-<div id="mostrar">
-    {% include "simas/menu.html" %}
-</div>
-
-<div id="sidebar">
-    <div class="graficos_widget">
+<div class="sidebar">
+   
         <h1>Gráficos tipos de arboles</h1>
-        <a id="grafico1" href="#" onCLick="click_callback('maderable')">Árbol Maderable</a>
-        <a id="grafico2" href="#" onCLick="click_callback('forrajero')">Árbol Forrajero</a>
-        <a id="grafico3" href="#" onCLick="click_callback('energetico')">Árbol Energetico</a>
-        <a id="grafico4" href="#" onCLick="click_callback('frutal')">Árbol Frutal</a>
-    </div>
-    <div id="separador"></div>
+        <a id="grafico1" href="#" onCLick="click_callback('maderable')"class="grafo">Árbol Maderable</a>
+        <a id="grafico2" href="#" onCLick="click_callback('forrajero')"class="grafo">Árbol Forrajero</a>
+        <a id="grafico3" href="#" onCLick="click_callback('energetico')"class="grafo">Árbol Energetico</a>
+        <a id="grafico4" href="#" onCLick="click_callback('frutal')"class="grafo">Árbol Frutal</a>
+ 
 </div>
 
+<div class="cuerpo">
 <div id="grafo"></div>
 
 <div class="contenido">
@@ -144,5 +142,5 @@ Existencia de árboles y Reforestación
         <tbody>
     </table>
 </div>
-
+</div>
 {% endblock %}

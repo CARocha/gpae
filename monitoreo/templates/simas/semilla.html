@@ -1,14 +1,14 @@
 {% extends "base.html"%}
 {%load unslugify %}
-{% block titulo %}
-Subindicador Uso de Semilla
-<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
-{% endblock%}
-{% block contenido %}
-<div id="mostrar">
-     {% include "simas/menu.html" %}
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Uso de semilla
 </div>
-<div class="contenido">   
+{% endblock %}
+
+{% block contenido %}
+
+<div class="cuerpo">   
     <table>
         <caption>Uso de semilla</caption>
         <thead>
@@ -42,7 +42,6 @@ Subindicador Uso de Semilla
             {%endfor%}
         </tbody>
     </table>
-    {{lista}}
     <br></br><br></br>
 </div>
 

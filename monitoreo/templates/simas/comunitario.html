@@ -1,9 +1,14 @@
 {% extends "base.html"%}
 {%load unslugify %}
-{% block titulo %}
-Subindicador Organización Comunitaria
-<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Organización
+</div>
+<div class="indicadores">
+	{% include "nav_org.html" %}
+</div>
 {% endblock %}
+
 {%block extra_header%}
 <script type="text/javascript">
     var activo = 0; 
@@ -34,22 +39,16 @@ Subindicador Organización Comunitaria
 {%endblock%}
 
 {%block contenido%}
-{% include "nav_org.html" %}
-<div class="separador"></div>
 
-<div id="mostrar">
-    {% include "simas/menu.html" %}
-</div>
+<div class="sidebar">
 
-<div id="sidebar">
-    <div class="graficos_widget">
         <h1>Gráficos </h1>
-        <a id="grafico1" href="#" onCLick="onCLick=click_callback('beneficiorganizado')">¿Beneficios de estar organizado</a>
-        <a id="grafico2" href="#" onCLick="click_callback('norganizado')">¿Porque no esta organizado?</a>
-        <a id="grafico2" href="#" onCLick="click_callback('comunitario')">¿Organización comunitaria?</a>
-
-    </div>
+        <a id="grafico1" href="#" onCLick="onCLick=click_callback('beneficiorganizado')" class="grafo">¿Beneficios de estar organizado</a>
+        <a id="grafico2" href="#" onCLick="click_callback('norganizado')"class="grafo" >¿Porque no esta organizado?</a>
+        <a id="grafico2" href="#" onCLick="click_callback('comunitario')" class="grafo">¿Organización comunitaria?</a>
 </div>
+
+<div class="cuerpo">
 
 <div id="grafo"></div>
 
@@ -107,5 +106,5 @@ Subindicador Organización Comunitaria
        
        </tbody>
     </table>
-
+</div>
 {% endblock %}

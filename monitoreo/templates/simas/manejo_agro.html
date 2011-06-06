@@ -1,16 +1,14 @@
 {% extends "base.html"%}
 {%load unslugify %}
-{% block titulo %}
-Subindicador Opciones de Manejo Agroecológico
-<div class="cambiar_indicador"><a href="#" id="mas">Cambiar Indicador</a> <span id="estado" class="estadouno"><img src="/archivos/imagen/menos.png"/></span></div>
-{% endblock%}
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Opciones de manejo agro.
+</div>
+{% endblock %}
+
 {% block contenido %}
 
-<div id="mostrar">
-     {% include "simas/menu.html" %}
-</div>
-
-<div class="contenido">
+<div class="cuerpo">
     <table>
         <caption>Nivel de conocimiento</caption>
         <thead>
