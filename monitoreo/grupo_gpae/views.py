@@ -821,7 +821,8 @@ def opcionesmanejo(request):
                                      opcionesmanejo__menor_escala=2).aggregate(menor_escala2=
                                      Count('opcionesmanejo__menor_escala'))['menor_escala2']
         total_menor = menor_escala + menor_escala2
-        por_menor_escala = saca_porcentajes(total_menor,num_familia)
+        por_menor_escala = saca_porcentajes(menor_escala,num_familia)
+        
         # vamos ahora con la mayor escala
         
         mayor_escala = query.filter(opcionesmanejo__uso=u,
@@ -831,7 +832,7 @@ def opcionesmanejo(request):
                                     opcionesmanejo__mayor_escala=2).aggregate(mayor_escala2=
                                     Count('opcionesmanejo__mayor_escala'))['mayor_escala2']
         total_mayor = mayor_escala + mayor_escala2
-        por_mayor_escala = saca_porcentajes(total_mayor, num_familia)
+        por_mayor_escala = saca_porcentajes(mayor_escala, num_familia)
         tabla_escala[key] = {'menor_escala':menor_escala,'menor_escala2':menor_escala2,
                              'mayor_escala':mayor_escala,'mayor_escala2':mayor_escala2,
                              'por_menor_escala':por_menor_escala,'por_mayor_escala':por_mayor_escala}
