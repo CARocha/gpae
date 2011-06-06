@@ -8,7 +8,7 @@ from django.utils import simplejson
 from django.db.models import Sum, Count, Avg
 from django.core.exceptions import ViewDoesNotExist
 
-from monitoreo.simas.models import *
+from monitoreo.grupo_gpae.models import *
 from monitoreo.indicador01.models import *
 from monitoreo.indicador02.models import *
 from monitoreo.indicador05.models import *
@@ -44,7 +44,7 @@ def _get_view(request, vista):
     if vista in VALID_VIEWS:
         return VALID_VIEWS[vista](request)
     else:
-        raise ViewDoesNotExist("Tried %s in module %s Error: View not defined in VALID_VIEWS." % (vista, 'simas.views'))
+        raise ViewDoesNotExist("Tried %s in module %s Error: View not defined in VALID_VIEWS." % (vista, 'grupo_gpae.views'))
 
 #-------------------------------------------------------------------------------
         
@@ -268,6 +268,7 @@ def luz(request):
                     resultados,
                     saca_porcentajes(resultados, total_tiene_luz, False)]
             tabla.append(fila)
+    print total_tiene_luz
 
     return render_to_response('simas/luz.html', 
                               {'tabla':tabla, 'num_familias': consulta.count()},
