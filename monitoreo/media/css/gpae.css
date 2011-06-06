@@ -1,0 +1,153 @@
+body{
+	background: #b3b49c;
+	font-family: "Trebuchet MS", sans-serif;
+	margin: 0;
+	padding: 0;
+}
+.clean{
+	clear: both;
+}
+#header{
+	height: 108px;		
+}
+#header .titulo{
+	float: left;
+}
+#header .titulo{	
+	margin-top: 30px;
+	font-family: 'Georgia', sans-serif;	
+}
+#header .titulo a{
+	color: #000;
+	font-size: 25px;
+	display: block;
+	background: url(/archivos/imagen/new/gpae_name_logo.png) no-repeat right;
+	padding-right: 112px;
+	padding-top: 2px; 
+}
+.wrapper{
+	width: 960px;
+	margin: 0 auto;
+}
+a{
+	text-decoration: none;
+}
+.entrar_link{
+	float: right;	
+}
+.entrar_link a{
+	color: #555753;
+	font-size: 12px;
+}
+.entrar_link a:hover{
+	text-decoration: underline;
+}
+.gpae-logo{
+	float: right;
+	margin-top: 11px;
+	margin-right: -76px;	
+}
+#filtros{
+	background-color: #972a1f;
+}
+.filtros_seleccion{
+	float: left;
+	width: 180px;
+	font-size: 17px;
+	color: #000;
+	font-weight: bold;
+	padding-top: 40px;
+	padding-left: 20px;
+	padding-bottom: 20px;	
+}
+.filtros_seleccion span{
+	color: #f1cd8b;
+	font-size: 14px;
+	font-weight: normal;
+}
+.filtros_seleccion .paso1{	
+	float: left;
+	height: 50px;	
+	background: url(/archivos/imagen/paso1.png) no-repeat;
+	width: 35px;
+}
+.filtros_disponibles{
+	float: left;
+	padding-left: 25px;
+	border-left: 1px solid;
+	width: 734px;
+	margin-top: -10px;	
+	padding-top: 15px;
+}
+.formulario_consulta .form_widget{
+	float: left;
+	background: url(/archivos/imagen/select-back.jpg) repeat-x;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;		
+}
+.form_widget select{
+	height: 21px;
+	border: 1px #ad9b82 solid;
+	background-color: #fff;
+	color: #595042;
+	font-family: 'Georgia', sans-serif;
+}
+.columna_uno{
+	float: left;
+	width: 120px;	
+}
+.columna_uno select{
+	width: 70px;
+}
+.columna_dos, 
+.columna_tres, 
+.columna_cuatro{
+	float: left;
+	width: 200px;
+}
+.columna_dos select, 
+.columna_tres select, 
+.columna_cuatro select{
+	width: 158px;
+}
+input[type='submit'].consultar{
+	text-indent: 9999px;
+	background: url(/archivos/imagen/consultar-boton.png) no-repeat;
+	width: 186px;
+	height: 30px;
+	border: none;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+input[type='submit'].consultar:hover{
+	background-position: 0 -30px;
+}
+.footer{
+	margin-top: 5px;
+	background: #595a44 url(/archivos/imagen/new/footer_bg.jpg) repeat-x bottom;
+	height: 120px;
+	padding-top: 20px;
+	font-size: 13px;	
+}
+.footer img{
+	float: right;
+	margin-right: 720px;
+	margin-top: -25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
