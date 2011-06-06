@@ -19,13 +19,12 @@
     function click_callback(url, id){
         $.getJSON(url + id, function(data) {
             if (activo!= url + id){
-                $("#grafo").html('<img src="' + data.url + '" />');                
+                $("#grafo").html('<img src="' + data.url + '" onload="cargar_altura();"/>');                
                 activo = url + id;
             }else{
                 $("#grafo").html('');                
                 activo = 0;
-            }
-            return cargar_altura();
+            }            
         });        
     }
     function disp(id){
