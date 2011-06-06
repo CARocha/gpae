@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from monitoreo.grupo_gpae.models import *
 from monitoreo.lugar.models import *
 
-ANOS_CHOICES = ((2010,'2010'),(2011,'2011'),(2012,'2012'),(2013,'2013'),(2014,'2014'))
+ANOS_CHOICES = ((2011,'2011'),(2012,'2012'),(2013,'2013'),(2014,'2014'))
 CHOICE_OPCION_F = (('','----'),(1,'Si'),(2,'No'))
 CHOICE_DESDE_F = (('','----'),(1,"Menos de 5 año"),(2,"Mas de 5 años"))
 CHOICE_DUENO_F = (('','----'),(1,"Hombre"),(2,"Mujer"),(3,"Mancomunado"),(4,"Parientes"),(5,"Colectivo"),(6,"No hay"))
