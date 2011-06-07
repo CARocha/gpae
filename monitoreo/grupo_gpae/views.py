@@ -98,17 +98,16 @@ def inicio(request):
     if request.method == 'POST':
         mensaje = None
         form = MonitoreoForm(request.POST)
-        if form.is_valid():
-            organizacion = form.cleaned_data['organizacion']
-            request.session['organizacion'] = organizacion
+        if form.is_valid():            
+            request.session['organizacion'] = form.cleaned_data['organizacion']
             request.session['fecha'] = form.cleaned_data['fecha']
             request.session['departamento'] = form.cleaned_data['departamento']
             try:
-                municipio = Municipio.objects.get(id=form.cleaned_data['municipio']) 
+                municipio = Municipio.objects.get(id=int(form.cleaned_data['municipio'])) 
             except:
                 municipio = None
             try:
-                comunidad = Comunidad.objects.get(id=form.cleaned_data['comunidad'])                
+                comunidad = Comunidad.objects.get(id=int(form.cleaned_data['comunidad']))                
             except:
                 comunidad = None
 
