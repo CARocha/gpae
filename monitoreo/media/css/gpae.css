@@ -300,7 +300,59 @@ td {
 	margin-top: 20px;
 	margin-left: 80px;	
 }
-
+#contenedor_indicadores{
+	padding-bottom: 10px;
+}
+#contenedor_indicadores a{
+	display: block;
+	float: left;
+	width: 150px;
+	height: 146px;
+	text-indent: -9999px;
+	margin: 15px 20px 0px;	
+}
+#contenedor_indicadores a:hover{
+	background-position: -150px 0px;
+}
+.manejo_sprite{
+	background: url(/archivos/imagen/new/manejo_sprite.jpg) no-repeat;
+}
+.animales_sprite{
+	background: url(/archivos/imagen/new/animales_sprite.jpg) no-repeat;
+}
+.ahorro_sprite{
+	background: url(/archivos/imagen/new/ahorro_sprite.jpg) no-repeat;
+}
+.cultivos_sprite{
+	background: url(/archivos/imagen/new/cultivos_sprite.jpg) no-repeat;
+}
+.familia_sprite{
+	background: url(/archivos/imagen/new/familia_sprite.jpg) no-repeat;
+}
+.organizacion_sprite{
+	background: url(/archivos/imagen/new/organizacion_sprite.jpg) no-repeat;
+}
+.semilla_sprite{
+	background: url(/archivos/imagen/new/semilla_sprite.jpg) no-repeat;
+}
+.tierra_sprite{
+	background: url(/archivos/imagen/new/tierra_sprite.jpg) no-repeat;
+}
+.suelo_sprite{
+	background: url(/archivos/imagen/new/suelo_sprite.jpg) no-repeat;
+}
+.seguridad_sprite{
+	background: url(/archivos/imagen/new/seguridad_sprite.jpg) no-repeat;
+}
+.bienes_sprite{
+	background: url(/archivos/imagen/new/bienes_sprite.jpg) no-repeat;
+}
+.ingresos_sprite{
+	background: url(/archivos/imagen/new/ingresos_sprite.jpg) no-repeat;
+}
+.riesgos_sprite{
+	background: url(/archivos/imagen/new/riesgos_sprite.jpg) no-repeat;
+}
 
 
 	
