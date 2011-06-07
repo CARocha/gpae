@@ -353,6 +353,8 @@ td {
 .riesgos_sprite{
 	background: url(/archivos/imagen/new/riesgos_sprite.jpg) no-repeat;
 }
-
+.datos_aux{
+	visibility: visible;
+}
 
 	
