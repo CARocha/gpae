@@ -8,8 +8,11 @@
         var municipio = document.getElementById("id_municipio");
         var comunidad= document.getElementById("id_comunidad");
         organizacion.options[0] = new Option("Organización");
+        organizacion.options[0].value = '';
         municipio.options[0] = new Option("Municipio");
+        municipio.options[0].value = '';
         comunidad.options[0] = new Option("Comunidad");
+        comunidad.options[0].value = '';
         
         //municipios
         $("#id_departamento").change(function () {
@@ -20,7 +23,9 @@
                 municipio.options.length = 0;
                 comunidad.options.length = 0;
                 municipio.options[0] = new Option("Municipio");
+                municipio.options[0].value = '';
                 comunidad.options[0] = new Option("Comunidad");
+                comunidad.options[0].value = '';
                 for(i=0; i< data.length; i++){
                     municipio.options[i+1] = new Option(data[i][1], data[i][0]);
                 }
@@ -35,7 +40,8 @@
             function(data){
                 organizacion.options.length = 0;
                 organizacion.options.length = 0;
-                organizacion.options[0] = new Option("Organización");
+                organizacion.options[0] = new Option("Organización");                
+                organizacion.options[0].value = '';
                 for(i=0; i< data.length; i++){
                     organizacion.options[i+1] = new Option(data[i][1], data[i][0]);
                 }
@@ -50,6 +56,7 @@
             function(data){
                 comunidad.options.length = 0;
                 comunidad.options[0] = new Option("Comunidad");
+                comunidad.options[0].value = '';
                 for(i=0; i< data.length; i++){
                     comunidad.options[i+1] = new Option(data[i][1], data[i][0]);
                 }

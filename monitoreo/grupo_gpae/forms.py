@@ -13,7 +13,7 @@ class MonitoreoForm(forms.Form):
     fecha = forms.ChoiceField(choices=ANOS_CHOICES)
     departamento = forms.ModelChoiceField(queryset=Departamento.objects.all(), 
             required=False, empty_label="Departamento")
-    organizacion = forms.CharField(widget = forms.Select, required=False, initial="Organización", )
+    organizacion = forms.CharField(widget = forms.Select, required=False)
     municipio = forms.CharField(widget = forms.Select, required=False)
     comunidad = forms.CharField(widget = forms.Select, required=False)
     socio = forms.ChoiceField(choices = CHOICE_OPCION_F , required=False)
