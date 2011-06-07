@@ -354,7 +354,29 @@ td {
 	background: url(/archivos/imagen/new/riesgos_sprite.jpg) no-repeat;
 }
 .datos_aux{
-	visibility: visible;
+	color: #fff;
+	font-size: 12px;
+	padding: 6px;
 }
+.datos_aux a{
+	color: #fff;
+	font-size: 12px;
+}
+.datos_aux a:hover{
+	text-decoration: underline;
+}
+.cambiar_consulta{
+	font-size: 13px;
+	float: left;
+	font-weight: bold;
+}
+.datos_aux .enlaces{
+	float: left;
+	margin-right: 5px;
+}
+.datos_aux .valores{
+	float: left;
+}
+
 
 	
