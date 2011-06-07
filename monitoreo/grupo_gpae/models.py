@@ -55,13 +55,14 @@ class Encuesta(models.Model):
     sexo = models.IntegerField(choices=CHOICE_SEXO)
     organizacion = models.ForeignKey(Organizaciones)
     user = models.ForeignKey(User)
-    
+        
     def __unicode__(self):
         return self.nombre
         
     class Meta:
         verbose_name_plural = "Encuesta"
-
+       
+    
 ## Indicador 1: Familia
 
 #CHOICE_EDUCACION = ((1,'Hombre mas de 18 años'),(2,'Mujeres mas de 18 años'),(3,'Hombre de 7 a 18 años'),

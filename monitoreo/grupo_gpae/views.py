@@ -60,16 +60,16 @@ def _queryset_filtrado(request):
 
         if 'departamento' in request.session:
             #incluye municipio y comunidad
-            if request.session['municipio']:
-                if 'comunidad' in request.session:
-                    params['comunidad'] = request.session['comunidad']
+            if request.session['municipio']:                
+                if 'comunidad' in request.session and request.session['comunidad'] != None:
+                    params['comunidad'] = request.session['comunidad']                    
                 else:
-                    params['comunidad__municipio'] = request.session['municipio']
+                    params['comunidad__municipio'] = request.session['municipio']                                        
             else:
                 params['comunidad__municipio__departamento'] = request.session['departamento']
 
-        if 'cooperativa' in request.session:
-            params['encuesta__organizacion'] = request.session['organizacion']
+        if 'organizacion' in request.session:
+            params['organizacion__id'] = int(request.session['organizacion'])            
 
         if 'socio' in request.session:
             params['organizaciongremial__socio'] = request.session['socio']
