@@ -142,6 +142,55 @@ def index(request):
         
 #-------------------------------------------------------------------------------
 
+def generales(request):
+    numero = Encuesta.objects.all().count()
+    
+    #Educacion
+    escolaridad = []
+    valores_e = []
+    leyenda_e = []
+    for escuela in CHOICE_EDUCACION:
+        conteo = Encuesta.objects.filter(educacion__sexo=escuela[0]).aggregate(conteo=Count('educacion__sexo'))['conteo']
+        porcentaje = round(saca_porcentajes(conteo,numero),2)
+        escolaridad.append([escuela[1],conteo,porcentaje])
+        valores_e.append(conteo)
+        leyenda_e.append(escuela[1])
+        
+    grafo_url = grafos.make_graph(valores_e, leyenda_e, 'Tipos de escolaridad', return_json=False ,type=grafos.PIE_CHART_3D)
+        
+        
+    #Departamentos   
+    depart = []
+    valores_d = []
+    leyenda_d = []  
+    for depar in Departamento.objects.all():
+        conteo = Encuesta.objects.filter(comunidad__municipio__departamento=depar).aggregate(conteo=Count('comunidad__municipio__departamento'))['conteo']
+        porcentaje = round(saca_porcentajes(conteo,numero))
+        if conteo != 0:
+            depart.append([depar.nombre,conteo,porcentaje])
+            valores_d.append(conteo)
+            leyenda_d.append(depar.nombre)
+            
+    grafo_depart = grafos.make_graph(valores_d, leyenda_d, 'Departamentos Encuestados', return_json=False ,type=grafos.PIE_CHART_3D)
+
+    #Municipios        
+    munis = []
+    valores_m = []
+    leyenda_m = []
+    for mun in Municipio.objects.all():
+        conteo = Encuesta.objects.filter(comunidad__municipio=mun).aggregate(conteo=Count('comunidad__municipio'))['conteo']
+        porcentaje = round(saca_porcentajes(conteo,numero))
+        if conteo != 0:
+            munis.append([mun.nombre,conteo,porcentaje])
+            valores_m.append(conteo)
+            leyenda_m.append(mun.nombre)
+      
+    grafo_munis = grafos.make_graph(valores_m, leyenda_m, 'Municipios Encuestados', return_json=False ,type=grafos.PIE_CHART_3D)
+            
+
+    return render_to_response('simas/generales.html', locals(),
+                               context_instance=RequestContext(request))
+
 #Comienzan las salidas del monitoreo simas
 
 #Tabla Educación
@@ -268,8 +317,6 @@ def luz(request):
                     resultados,
                     saca_porcentajes(resultados, consulta.count(), False)]
             tabla.append(fila)
-    print total_tiene_luz
-    print fila
 
     return render_to_response('simas/luz.html', 
                               {'tabla':tabla, 'num_familias': consulta.count()},
@@ -1524,7 +1571,8 @@ VALID_VIEWS = {
         'mitigariesgos': mitigariesgos,
         'ahorro_credito': ahorro_credito,
         'opcionesmanejo': opcionesmanejo,
-        'seguridad': seguridad_alimentaria,           
+        'seguridad': seguridad_alimentaria,
+        'general': generales,           
         #me quedo tuani el caminito :)
             }
         
