@@ -4,14 +4,13 @@
 <div class="selectos_seleccion titulo">
 	Cultivos y producción
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div>  
 {% endblock %}
 
 {%block contenido%}
-<div class="cuerpo">
-
 <div class="contenido">
+    <div class="subindicador">Los cultivos y la producción</div>
     <table style="width:100%;">
-        <caption>Los cultivos y la producción</caption>
         <thead>
             <tr>
                 <th>CULTIVOS</th>
@@ -33,6 +32,5 @@
             {%endfor%}
         <tbody>
     </table>
-</div>
 </div>
 {%endblock%}

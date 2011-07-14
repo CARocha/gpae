@@ -101,4 +101,4 @@ INSTALLED_APPS = (
     'south',
 )
 
-NO_DATA_GRAPH_URL = '/'
+NO_DATA_GRAPH_URL = '/archivos/imagen/NODATA.jpg'

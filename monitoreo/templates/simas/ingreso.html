@@ -4,6 +4,7 @@
 <div class="selectos_seleccion titulo">
 	Ingreso
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div>  
 {% endblock %}
 {%load unslugify %}
 {% block extra_header %}
@@ -20,25 +21,6 @@
             }
         });
     }
-    $(document).ready(function() {
-        $("#grafico1").click(function(){
-            $("#grafico1").addClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-        });
-    
-        $("#grafico2").click(function(){
-            $("#grafico2").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico3").click(function(){
-            $("#grafico3").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-        });
-    });
 </script>
 {% endblock %}
 {%block contenido%}
@@ -58,8 +40,8 @@
     </div>
  <div class="cuerpo">
     <div id="grafo"></div>
+    <div class="subindicador">Los Ingresos familiares</div>
     <table style="width:100%;">
-        <caption>Los Ingresos familiares</caption>
         <thead>
             <tr>
                 <th>RUBROS</th>
@@ -92,9 +74,8 @@
         </tr>
 
     </table>
-    <br><br>
+    <br>    <div class="subindicador">Los Otros Ingresos familiares</div>
     <table style="width:100%;">
-        <caption>Los Otros Ingresos familiares</caption>
         <thead>
             <tr>
                 <th>FUENTES</th>
@@ -123,7 +104,8 @@
             <th>{{respuesta.ingreso_otro|intcomma}}</th>
         </tr>
     </table style="width:100%;">
-    <br><br>
+    <br>
+     <div class="subindicador">Los Otros Ingresos familiares</div>
     <table>
         <tr colspan="2">
             <th>INGRESO BRUTO</th>

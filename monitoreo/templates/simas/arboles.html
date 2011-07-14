@@ -2,11 +2,12 @@
 {%load unslugify %}
 {% block barra %}
 <div class="selectos_seleccion titulo">
-	Existencia de árboles y Reforestación
+	Existencia de árboles
 </div>
 <div class="indicadores">
 	{% include "nav_tierra.html" %}
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div>
 {% endblock %}
 {% block extra_header %}
 <script type="text/javascript">
@@ -22,45 +23,8 @@
             }
         });
     }
-    $(document).ready(function() {
-        $("#grafico1").click(function(){
-            $("#grafico1").addClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-        });
-    
-        $("#grafico2").click(function(){
-            $("#grafico2").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico3").click(function(){
-            $("#grafico3").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-        });
-        $("#grafico4").click(function(){
-            $("#grafico4").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico5").click(function(){
-            $("#grafico5").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-        });
+$(document).ready(function() {
+        $(".arboles").addClass("activa");
     });
 </script>
 {% endblock %}
@@ -80,8 +44,8 @@
 <div id="grafo"></div>
 
 <div class="contenido">
+<div class="subindicador">Tabla Existencia de Arboles</div>
     <table style="width:100%;">
-        <caption>Tabla Existencia de Arboles</caption>
         <thead>
             <tr>
                 <th>TIPO</th>
@@ -118,8 +82,9 @@
         </tbody>
     </table>
     <br>
+    <div class="subindicador">Reforestación en ultimo año</div>
     <table style="width:100%;">
-        <caption>Reforestación en ultimo año</caption>
+
         <thead>
             <tr>
                 <th>Actividad</th>

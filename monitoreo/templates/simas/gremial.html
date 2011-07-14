@@ -7,6 +7,7 @@
 <div class="indicadores">
 	{% include "nav_org.html" %}
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div> 
 {% endblock %}
 
 {%block extra_header%}
@@ -35,6 +36,10 @@
         });
 
     });
+    $(document).ready(function() {
+        $(".gremial").addClass("activa");
+    });
+   
 </script>
 {%endblock%}
 
@@ -52,8 +57,8 @@
 <div class="cuerpo">
  
     <div id="grafo"></div>
+    <div class="subindicador">Es socio/a de organización Gremial</div>
     <table style="width:100%;">
-        <caption>Es socio/a de organización Gremial</caption>
         <thead>
             <tr>
                 <th>Categoria</th>
@@ -78,10 +83,9 @@
        
        <tbody>
     </table>
-    
-    
-     <table>
-        <caption>Desde cuando socios</caption>
+    <br>
+    <div class="subindicador">Desde cuando socios</div>
+     <table style="width:100%;">
         <thead>
             <tr>
                 <th>Categoria</th>
@@ -106,9 +110,9 @@
        
        </tbody>
     </table>
-    
-     <table>
-        <caption>Soy miembro de órgano gremial</caption>
+    <br>
+    <div class="subindicador">Soy miembro de órgano gremial</div>
+     <table style="width:100%;">
         <thead>
             <tr>
                 <th>Categoria</th>
@@ -133,10 +137,9 @@
        
        </tbody>
     </table>
-
-
-<table>
-        <caption>Desde cuando miembro</caption>
+    <br>
+<div class="subindicador">Desde cuando miembro</div>
+<table style="width:100%;">
         <thead>
             <tr>
                 <th>Categoria</th>
@@ -161,10 +164,9 @@
        
        </tbody>
     </table>
-    
-    
-    <table>
-        <caption>He recibido capacitación para desempeñar mi cargo</caption>
+    <br>
+    <div class="subindicador">He recibido capacitación para desempeñar mi cargo</div>
+    <table style="width:100%;">
         <thead>
             <tr>
                 <th>Categoria</th>

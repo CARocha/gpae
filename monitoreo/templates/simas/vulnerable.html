@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {%load unslugify %}
+{%block extra_header%}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".vulnerable").addClass("activa");
+    });
+    </script>
+{%endblock%}
 {% block barra %}
 <div class="selectos_seleccion titulo">
 	Riesgos
@@ -7,12 +14,13 @@
 <div class="indicadores">
 	{% include "nav_riesgos.html" %}
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div>  
 {% endblock %}
 
 {% block contenido %}
-<div class="cuerpo">
-    <table>
-        <caption>Vulnerabilidades de las fincas</caption>
+<div class="contenido">
+<div class="subindicador">Vulnerabilidades de las fincas</div>
+    <table style="width:100%;">
         <thead>
             <tr>
                 <th>Fenomeno</th>

@@ -7,6 +7,7 @@
 <div class="indicadores">
 	{% include "nav_suelo.html" %}
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div>  
 {% endblock %}
 
 {% block extra_header %}
@@ -28,23 +29,7 @@
         });
     }
     $(document).ready(function() {
-        $("#grafico1").click(function(){
-            $("#grafico1").addClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-        });
-    
-        $("#grafico2").click(function(){
-            $("#grafico2").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico3").click(function(){
-            $("#grafico3").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-        });
+        $(".manejosuelo").addClass("activa");
     });
 </script>
 {%endblock%}
@@ -60,9 +45,8 @@
 
 <div class="cuerpo">
 <div id="grafo"></div>
-
+<div class="subindicador">¿Cómo preparan sus terrenos?</div>
     <table style="width:100%;">
-        <caption>¿Cómo preparan sus terrenos?</caption>
         <thead>
             <tr>
                 <th>Terrenos</th>
@@ -80,9 +64,9 @@
             {%endfor%}
         </tbody>
     </table>
-
+<br>
+<div class="subindicador">¿Qué tipo de traccion utiliza para la preparación del suelo?</div>
     <table style="width:100%;">
-        <caption>¿Qué tipo de traccion utiliza para la preparación del suelo?</caption>
         <thead>
             <tr>
                 <th>Tipo Tracción</th>
@@ -100,9 +84,9 @@
             {%endfor%}
         </tbody>
     </table>
-
+<br>
+<div class="subindicador">¿Qué tipo de fertilización realiza?</div>
     <table style="width:100%;">
-        <caption>¿Qué tipo de fertilización realiza?</caption>
         <thead>
             <tr>
                 <th>Tipos de Fertilización</th>
@@ -120,9 +104,9 @@
             {%endfor%}
         </tbody>
     </table>
-
+<br>
+<div class="subindicador">¿Qué tipo de obra de conservación de suelo?</div>
     <table style="width:100%;">
-        <caption>¿Qué tipo de obra de conservación de suelo?</caption>
         <thead>
             <tr>
                 <th>Tipos de obras</th>

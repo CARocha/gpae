@@ -1,18 +1,26 @@
 {% extends "base.html" %}
 {% load unslugify %}
-
+{%block extra_header%}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".educacion").addClass("activa");
+    });
+    </script>
+{%endblock%}
 {% block barra %}
 <div class="selectos_seleccion titulo">
-	Familia
+	FAMILIA
 </div>
 <div class="indicadores">
 	{% include "nav_familia.html" %}
+    
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div>  
 {% endblock %}
 
 {% block contenido %}
 <div class="contenido">
-	<div class="subindicador">Indicador: EDUCACIÓN</div>
+	<div class="subindicador">EDUCACIÓN</div>
     <table style="width:100%;">        
         <thead>
             <tr>
