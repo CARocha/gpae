@@ -4,6 +4,7 @@
 <div class="selectos_seleccion titulo">
 	Ahorro y credito
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div>  
 {% endblock %}
 {%block extra_header%}
 <script type="text/javascript">
@@ -19,34 +20,6 @@
             }
         });
     }
-    $(document).ready(function() {
-        $("#grafico1").click(function(){
-            $("#grafico1").addClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-        });
-    
-        $("#grafico2").click(function(){
-            $("#grafico2").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico3").click(function(){
-            $("#grafico3").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-        });
-        $("#grafico4").click(function(){
-            $("#grafico4").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-        });
-    });
 </script>
 {%endblock%}
 {% block contenido %}
@@ -62,9 +35,8 @@
 
 <div class="cuerpo">
     <div id="grafo"></div>
-   
+   <div class="subindicador">Los Ahorros</div>
     <table style="width:100%;">
-        <caption>Los Ahorro</caption>
         <thead>
             <tr>
                 <th>Pregunta</th>
@@ -82,9 +54,9 @@
             {%endfor%}
         </tbody>
     </table>
-
-    <table>
-        <caption>Los créditos</caption>
+<br>
+<div class="subindicador">Los créditos</div>
+    <table style="width:100%;">
         <thead>
             <tr>
                 <th></th>

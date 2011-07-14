@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {%load unslugify %}
-
+{%block extra_header%}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".salud").addClass("activa");
+    });
+    </script>
+{%endblock%}
 {% block barra %}
 <div class="selectos_seleccion titulo">
 	Familia
@@ -8,12 +14,13 @@
 <div class="indicadores">
 	{% include "nav_familia.html" %}
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div>  
 {% endblock %}
 
 {% block contenido %}  
 <div class="contenido">
+<div class="subindicador">TIENE BUENA SALUD?</div>
     <table style="width:100%;">
-    <caption>Tiene Buena Salud?</caption>
         <thead>
             <tr>
                 <th></th>
@@ -34,8 +41,8 @@
         <tbody>
     </table>
 	</br>
+    <div class="subindicador">Visita centros de salud</div>
     <table style="width:100%;">
-    <caption>Visita centros de salud</caption>
         <thead>
             <tr>
                 <th></th>

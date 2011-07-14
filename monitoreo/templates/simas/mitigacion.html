@@ -7,17 +7,20 @@
 <div class="indicadores">
 	{% include "nav_riesgos.html" %}
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div> 
 {% endblock %}
 {%block extra_header%}
-<script type="text/javascript">
-
-</script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".mitigacion").addClass("activa");
+    });
+    </script>
 {%endblock%}
 {% block contenido %}
 
-<div class="cuerpo">
+<div class="contenido">
+<div class="subindicador">Mitigación de los Riesgos</div>
     <table style="width:100%;">
-        <caption>Mitigación de los Riesgos</caption>
         <thead>
             <tr>
                 <th>Preguntas</th>

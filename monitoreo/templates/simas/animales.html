@@ -4,13 +4,13 @@
 <div class="selectos_seleccion titulo">
 	Ánimales
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div>  
 {% endblock %}
 
 {% block contenido %}
-<div class="cuerpo">
 <div class="contenido">
+    <div class="subindicador">Los Animales</div>
     <table style="width:100%;">
-        <caption>Los Animales</caption>
         <thead>
             <tr>
                 <th></th>
@@ -37,9 +37,9 @@
             {%endfor%}
         </tbody>
     </table>
-
+    <br>
+    <div class="subindicador">Los Animales y la Producción</div>
     <table style="width:100%;">
-        <caption>Los Animales y la Producción </caption>
         <thead>
             <tr>
                 <th>Animal</th>
@@ -62,7 +62,6 @@
             {%endfor%}
         </tbody>
     </table>
-</div>
 </div>
 
 {% endblock %}

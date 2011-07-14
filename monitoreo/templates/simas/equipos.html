@@ -4,6 +4,7 @@
 <div class="selectos_seleccion titulo">
 	Equipos
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div>  
 {% endblock %}
 
 {% block extra_header %}
@@ -20,60 +21,6 @@
             }
         });
     }
-    $(document).ready(function() {
-        $("#grafico1").click(function(){
-            $("#grafico1").addClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-        });
-    
-        $("#grafico2").click(function(){
-            $("#grafico2").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico3").click(function(){
-            $("#grafico3").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-        });
-        $("#grafico4").click(function(){
-            $("#grafico4").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico5").click(function(){
-            $("#grafico5").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico6").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico6").click(function(){
-            $("#grafico6").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-        });
-    });
 </script>
 {% endblock %}
 {% block contenido %}
@@ -90,9 +37,8 @@
         
   <div class="cuerpo">
     <div id="grafo"></div>
-    
+    <div class="subindicador">Los Equipos</div>
     <table style="width:100%;">
-        <caption>Los Equipos</caption>
         <thead>
             <tr>
                 <th>EQUIPOS</th>
@@ -114,9 +60,9 @@
             {%endfor%}
         </tbody>
     </table>
-
-    <table id="table_example" class="tablesorter" style="font-size:90%">
-        <caption>Las Infraestructuras</caption>
+    <br>
+    <div class="subindicador">Las Infraestructuras</div>
+    <table id="table_example" class="tablesorter" style="font-size:90%;width:100%;">
         <thead>
             <tr>
                 <th>INFRAESTRUCTURA</th>
@@ -138,9 +84,9 @@
             {%endfor%}
         </tbody>
     </table>
-
-    <table id="table_example" class="tablesorter" style="font-size:90%">
-        <caption>Las Herramientas</caption>
+     <br>
+    <div class="subindicador">Las Herramientas</div>
+    <table id="table_example" class="tablesorter" style="font-size:90%;width:100%;">
         <thead>
             <tr>
                 <th>HERRAMIENTAS</th>
@@ -162,9 +108,9 @@
             {%endfor%}
         </tbody>
     </table>
-
-    <table id="table_example" class="tablesorter" style="font-size:90%">
-        <caption>Los Transportes</caption>
+     <br>
+    <div class="subindicador">Los Transportes</div>
+    <table id="table_example" class="tablesorter" style="font-size:90%;width:100%;">
         <thead>
             <tr>
                 <th>TRANSPORTE</th>

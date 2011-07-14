@@ -7,6 +7,7 @@
 <div class="indicadores">
 	{% include "nav_org.html" %}
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div>
 {% endblock %}
 
 {%block extra_header%}
@@ -35,6 +36,9 @@
         });
 
     });
+    $(document).ready(function() {
+        $(".comunitaria").addClass("activa");
+    });
 </script>
 {%endblock%}
 
@@ -51,13 +55,12 @@
 <div class="cuerpo">
 
 <div id="grafo"></div>
-
+ <div class="subindicador">¿Cuántas organizaciones están activas en la localidad o comunidad?</div>
 <table style="width:100%;">
-        <caption>¿Cuántas organizaciones están activas en la localidad o comunidad?</caption>
         <thead>
             <tr>
                 <th>Organizaciones</th>
-                <th>Cuantas</th>
+                <th>Cantidad</th>
             </tr>
         </thead>
         <tbody>
@@ -77,11 +80,10 @@
        
        </tbody>
     </table>
+<br>
 
-
-
+ <div class="subindicador">¿Pertenece a algunas organizaciones?</div>
 <table style="width:100%;">
-        <caption>¿Pertenece a algunas organizaciones?</caption>
         <thead>
             <tr>
                 <th>Categoria</th>

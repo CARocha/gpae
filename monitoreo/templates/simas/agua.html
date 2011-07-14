@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {%load unslugify %}
-
 {% block barra %}
 <div class="selectos_seleccion titulo">
 	Familia
@@ -8,6 +7,7 @@
 <div class="indicadores">
 	{% include "nav_familia.html" %}
 </div>
+<div id="numfamilias">{{num_familias}} Familias </div> 
 {% endblock %}
 
 {%block extra_header%}
@@ -30,6 +30,10 @@
     function disp(id){
         click_callback('/grafo/agua-disponibilidad/', id);        
     }
+    $(document).ready(function() {
+        $(".agua").addClass("activa");
+    });
+   
 </script>
 {%endblock%}
 {% block contenido %}
@@ -45,9 +49,9 @@
 </div>
 <div class="cuerpo">
 	<div id="grafo"></div>
-	<div>
+	
+    <div class="subindicador">Agua de consumo</div>
 		<table style="width:100%;">
-			<caption>Agua de consumo</caption>
 			<thead>
 				<tr>
 					<th>Fuente</th>

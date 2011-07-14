@@ -1,11 +1,20 @@
 {% extends 'base.html'%}
 
 {% block contenido %}
+<style type="text/css">
+.valores{
+	display: none !important;
+}
+
+#cambiarconsulta{display: none !important;}
+#nuevaconsulta{display: none !important;}
+#labelfiltros{display: none !important;}
+</style>
 <br>
-<h1>Datos Generales de todas las encuestas</h1>
+<center><div style="font-size:18px;color:#888a85;">Datos Generales de todas las encuestas</div></center>
 </br>
+<div class="subindicador">Número de personas en {{numero}} Familias entrevistadas</div>
 <table style="width:100%;">
-        <caption>Número de personas en {{numero}} Familias entrevistadas</caption>
         <thead>
             <tr>
                 <th>sexo</th>
@@ -24,10 +33,10 @@
         </tbody>
     </table>
     
-        <img src="{{grafo_url}}" alt="Escolaridades" title="Escolaridades">
-<br></br>
+        <center><img src="{{grafo_url}}" alt="Escolaridades" title="Escolaridades"></center>
+<br>
+<div class="subindicador">Departamentos entrevistados</div>
 <table style="width:100%;">
-        <caption>Departamentos entrevistados</caption>
         <thead>
             <tr>
                 <th>Departamentos</th>
@@ -45,10 +54,10 @@
             {%endfor%}
         </tbody>
     </table>
-    <img src="{{grafo_depart}}" alt="Departamentos Entrevistados" title="Departamentos Entrevistados">
+    <center><img src="{{grafo_depart}}" alt="Departamentos Entrevistados" title="Departamentos Entrevistados"></center>
 <br></br>
+<div class="subindicador">Municipio entrevistados</div>
 <table style="width:100%;">
-        <caption>Municipio entrevistados</caption>
         <thead>
             <tr>
                 <th>Municipios</th>
@@ -66,7 +75,7 @@
             {%endfor%}
         </tbody>
     </table>
-    <img src="{{grafo_munis}}" alt="Municipios Entrevistados" title="Municipios Entrevistados">
+    <center><img src="{{grafo_munis}}" alt="Municipios Entrevistados" title="Municipios Entrevistados"></center>
 <br></br>
 
 

@@ -126,7 +126,11 @@ def inicio(request):
         form = MonitoreoForm()
         mensaje = "Existen alguno errores"
         centinela = 0
-    dict = {'form': form,'user': request.user,'centinela':centinela}
+    cambiar = request.GET.get('cambiar', '')
+    if cambiar and request.session['activo']:
+        cambiar = 1
+        centinela =1
+    dict = {'form': form,'user': request.user,'centinela':centinela,'cambiar':cambiar}
     return render_to_response('simas/inicio.html', dict,
                               context_instance=RequestContext(request))        
         
