@@ -659,7 +659,11 @@ def ingresos(request):
         matriz[key] = {'frecuencia':frecuencia,'meses':meses,
                        'ingreso':ingreso,'ingresototal':ingresototal}
                        
-    respuesta['brutoo'] = round((respuesta['ingreso_total'] + respuesta['ingreso_otro']) / num_familias,2)
+    try:
+        respuesta['brutoo'] = round((respuesta['ingreso_total'] + respuesta['ingreso_otro']) / num_familias,2)
+    except:
+        respuesta['brutoo'] = 0
+        
     respuesta['total_neto'] = round(respuesta['brutoo'] * 0.6,2)
         
     return render_to_response('simas/ingreso.html',
